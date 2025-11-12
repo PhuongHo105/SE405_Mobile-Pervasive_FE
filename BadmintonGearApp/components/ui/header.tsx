@@ -7,15 +7,12 @@ import { ThemedView } from '../themed-view'
 import { IconSymbol } from './icon-symbol'
 
 type HeaderProps = {
-    /** 'search' shows the search-header variant; omitted for normal header */
     mode?: 'search'
 }
 
 export default function Header({ mode }: HeaderProps): React.ReactElement {
     const schemeRaw: ColorSchemeName | undefined = useColorScheme()
-    // mode is only a layout variant ('search'); do NOT use it for theme selection
     const scheme: keyof typeof Colors = (schemeRaw ?? 'light') as keyof typeof Colors
-    const tint: string = Colors[scheme].tint
     const iconColor: string = Colors[scheme].text
 
     const logoSource: ImageSourcePropType = scheme === 'dark'
@@ -26,7 +23,7 @@ export default function Header({ mode }: HeaderProps): React.ReactElement {
         <ThemedView style={styles.headerContainer}>
             <ThemedView style={styles.logoContainer}>
                 <Image source={logoSource} style={styles.logo} />
-                <ThemedText type="title" style={[styles.title, { color: tint }]}>BadmintonGear</ThemedText>
+                <ThemedText type="title" style={[styles.title, { color: iconColor }]}>BadmintonGear</ThemedText>
             </ThemedView>
 
             {mode !== 'search' && (

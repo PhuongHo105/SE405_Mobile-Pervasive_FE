@@ -39,7 +39,7 @@ export default function RootLayout() {
       const t = setTimeout(() => {
         try {
           router.replace('/welcome' as any);
-        } catch (e) {
+        } catch {
           // ignore
         } finally {
           didForceRef.current = true;
@@ -52,23 +52,18 @@ export default function RootLayout() {
       didForceRef.current = true;
       setStackReady(true);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [segments]);
+  }, [segments, router]);
 
-  // (Removed AppState foreground listener to avoid forcing welcome on every
-  // resume — this prevented an unintended reload loop.)
+
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <View style={{ flex: 1, backgroundColor: Colors[colorScheme ?? 'light'].background }}>
-        {/* Render WelcomeScreen directly until the Stack is ready so we don't
-            briefly render the tabs on cold start. After initialization we
-            render the normal Stack navigator. */}
         {!stackReady ? (
           <WelcomeScreen />
         ) : (
           <Stack>
-            <Stack.Screen name="welcome" options={{ headerShown: false }} />
+            <Stack.Screen name="welcome" options={{ headerShown: false, gestureEnabled: false }} />
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
           </Stack>
