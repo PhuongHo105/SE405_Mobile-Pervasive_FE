@@ -7,7 +7,7 @@ import 'react-native-reanimated';
 
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
-import { ThemePreferenceProvider } from './(tabs)/providers/ThemePreferenceProvider';
+import { ThemePreferenceProvider } from './providers/ThemePreferenceProvider';
 import WelcomeScreen from './welcome';
 export const unstable_settings = {
   anchor: 'welcome',
