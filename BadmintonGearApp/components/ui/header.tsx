@@ -1,7 +1,8 @@
 import { Colors } from '@/constants/theme'
+import { useColorScheme } from '@/hooks/use-color-scheme'
 import { Image } from 'expo-image'
 import React, { FC } from 'react'
-import { ColorSchemeName, ImageSourcePropType, Pressable, StyleSheet, useColorScheme } from 'react-native'
+import { ColorSchemeName, ImageSourcePropType, Pressable, StyleSheet } from 'react-native'
 import { ThemedText } from '../themed-text'
 import { ThemedView } from '../themed-view'
 import { IconSymbol } from './icon-symbol'
@@ -14,7 +15,6 @@ const Header: FC<HeaderProps> = ({ mode }: HeaderProps): React.ReactElement => {
     const schemeRaw: ColorSchemeName | undefined = useColorScheme()
     const scheme: keyof typeof Colors = (schemeRaw ?? 'light') as keyof typeof Colors
     const iconColor: string = Colors[scheme].text
-
     const logoSource: ImageSourcePropType = scheme === 'dark'
         ? require('../../assets/images/logo/dark-logo.png')
         : require('../../assets/images/logo/light-logo.png')

@@ -7,6 +7,7 @@ import 'react-native-reanimated';
 
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { ThemePreferenceProvider } from './(tabs)/providers/ThemePreferenceProvider';
 import WelcomeScreen from './welcome';
 export const unstable_settings = {
   anchor: 'welcome',
@@ -57,19 +58,25 @@ export default function RootLayout() {
 
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <View style={{ flex: 1, backgroundColor: Colors[colorScheme ?? 'light'].background }}>
-        {!stackReady ? (
-          <WelcomeScreen />
-        ) : (
-          <Stack>
-            <Stack.Screen name="welcome" options={{ headerShown: false, gestureEnabled: false }} />
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-          </Stack>
-        )}
-        <StatusBar style="auto" />
-      </View>
-    </ThemeProvider>
+    <ThemePreferenceProvider>
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <View style={{ flex: 1, backgroundColor: Colors[colorScheme ?? 'light'].background }}>
+          {!stackReady ? (
+            <WelcomeScreen />
+          ) : (
+            <Stack>
+              <Stack.Screen name="welcome" options={{ headerShown: false, gestureEnabled: false }} />
+              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+              <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
+              <Stack.Screen name="product" options={{ headerShown: false }} />
+              {/* <Stack.Screen name="product/[id]" options={{ headerShown: false }} />
+            <Stack.Screen name="search" options={{ headerShown: false }} /> */}
+
+            </Stack>
+          )}
+          <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
+        </View>
+      </ThemeProvider>
+    </ThemePreferenceProvider>
   );
 }
