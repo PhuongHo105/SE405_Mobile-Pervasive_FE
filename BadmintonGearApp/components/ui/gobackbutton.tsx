@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Pressable } from 'react-native';
-import BackIcon from './back-icon';
+import BackIcon from './BackIcon';
 
 export default function GoBackButton(): React.ReactElement {
     const navigation = useNavigation();

@@ -1,13 +1,13 @@
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import BagsIcon from '@/components/ui/categoryIcon/bags-icon';
-import ClothesIcon from '@/components/ui/categoryIcon/clothes-icon';
-import OtherIcon from '@/components/ui/categoryIcon/other-icon';
-import RacketIcon from '@/components/ui/categoryIcon/racket-icon';
-import ShoesIcon from '@/components/ui/categoryIcon/shoes-icon';
-import ShuttlecockIcon from '@/components/ui/categoryIcon/shuttlecock-icon';
-import GoBackButton from '@/components/ui/gobackbutton';
+import BagsIcon from '@/components/ui/categoryIcon/BagsIcon';
+import ClothesIcon from '@/components/ui/categoryIcon/ClothesIcon';
+import OtherIcon from '@/components/ui/categoryIcon/OtherIcon';
+import RacketIcon from '@/components/ui/categoryIcon/RacketIcon';
+import ShoesIcon from '@/components/ui/categoryIcon/ShoesIcon';
+import ShuttlecockIcon from '@/components/ui/categoryIcon/ShuttlecockIcon';
+import GoBackButton from '@/components/ui/GoBackButton';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import React from 'react';
