@@ -14,6 +14,7 @@ const MAPPING: IconMapping = {
   'account-box': 'account-box',
   'search.fill': 'search',
   'close': 'close',
+  'filter': 'filter-list',
 };
 
 
