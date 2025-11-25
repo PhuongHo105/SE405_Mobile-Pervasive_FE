@@ -1,6 +1,8 @@
 import { Colors } from '@/constants/theme'
 import { useColorScheme } from '@/hooks/use-color-scheme'
+import { useNavigation } from '@react-navigation/native'
 import { Image } from 'expo-image'
+import { useRouter } from 'expo-router'
 import React, { FC } from 'react'
 import { ColorSchemeName, ImageSourcePropType, Pressable, StyleSheet } from 'react-native'
 import { ThemedText } from '../themed-text'
@@ -12,6 +14,8 @@ type HeaderProps = {
 }
 
 const Header: FC<HeaderProps> = ({ mode }: HeaderProps): React.ReactElement => {
+    const router = useRouter();
+    const navigation = useNavigation();
     const schemeRaw: ColorSchemeName | undefined = useColorScheme()
     const scheme: keyof typeof Colors = (schemeRaw ?? 'light') as keyof typeof Colors
     const iconColor: string = Colors[scheme].text
@@ -28,7 +32,9 @@ const Header: FC<HeaderProps> = ({ mode }: HeaderProps): React.ReactElement => {
 
             {mode !== 'search' && (
                 <ThemedView style={styles.rightContainer} >
-                    <IconSymbol size={28} name="search.fill" color={iconColor} />
+                    <Pressable onPress={() => { router.push('/search') }}>
+                        <IconSymbol size={28} name="search.fill" color={iconColor} />
+                    </Pressable>
                     <Pressable onPress={() => { }} style={{ marginLeft: 12 }}>
                         <Image source={require('../../assets/images/logo/light-logo.png')} style={styles.avatar} />
                     </Pressable>
@@ -36,9 +42,9 @@ const Header: FC<HeaderProps> = ({ mode }: HeaderProps): React.ReactElement => {
             )}
 
             {mode === 'search' && (
-                <ThemedView>
+                <Pressable onPress={() => { navigation.goBack() }} >
                     <IconSymbol size={28} name="close" color={iconColor} />
-                </ThemedView>
+                </Pressable>
             )}
         </ThemedView>
     )
@@ -79,5 +85,9 @@ const styles = StyleSheet.create({
         width: 40,
         height: 40,
         borderRadius: 20,
+    },
+    profilePopup: {
+        position: 'absolute',
+        top: 60,
     },
 })
