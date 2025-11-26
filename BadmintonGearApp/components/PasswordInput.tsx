@@ -14,6 +14,8 @@ type PasswordInputProps = {
     onChangeText?: (text: string) => void;
     onChange?: (e: any) => void;
     style?: StyleProp<ViewStyle>;
+    onFocus?: () => void;
+    onBlur?: () => void;
 };
 
 const PasswordInput: FC<PasswordInputProps> = ({
@@ -23,6 +25,8 @@ const PasswordInput: FC<PasswordInputProps> = ({
     onChangeText,
     onChange,
     style,
+    onFocus,
+    onBlur,
 }) => {
     const schemeRaw = useColorScheme();
     const scheme: keyof typeof Colors = (schemeRaw ?? 'light') as keyof typeof Colors;
@@ -39,6 +43,8 @@ const PasswordInput: FC<PasswordInputProps> = ({
                 value={value}
                 onChangeText={onChangeText}
                 onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
                 style={{
                     flex: 1,
                     color: textColor,
