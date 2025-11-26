@@ -1,7 +1,7 @@
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
-import FullButton from "@/components/ui/FullButton";
-import Header from "@/components/ui/Header";
+import FullButton from "@/components/ui/FullButton_temp";
+import Header from "@/components/ui/Header_temp";
 import { IconSymbol } from "@/components/ui/icon-symbol";
 import Slider from "@/components/ui/Slider";
 import { BRAND_OPTIONS, CATEGORY_OPTIONS, PRICE_RANGE, PRICE_STEP, type ProductFilters, formatPrice } from "@/constants/product-data";

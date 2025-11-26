@@ -1,8 +1,8 @@
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import BorderButton from '@/components/ui/BorderButton';
-import FullButton from '@/components/ui/FullButton';
-import GoBackButton from '@/components/ui/GoBackButton';
+import BorderButton from '@/components/ui/BorderButton_temp';
+import FullButton from '@/components/ui/FullButton_temp';
+import GoBackButton from '@/components/ui/GoBackButton_temp';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
