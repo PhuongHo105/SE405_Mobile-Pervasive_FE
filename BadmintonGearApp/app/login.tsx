@@ -1,4 +1,4 @@
-import PasswordInput from '@/components/PasswordInput';
+import PasswordInput from '@/components/ui/PasswordInput';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import BorderButton from '@/components/ui/BorderButton';
