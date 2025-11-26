@@ -7,7 +7,7 @@ import OtherIcon from '@/components/ui/categoryIcon/OtherIcon';
 import RacketIcon from '@/components/ui/categoryIcon/RacketIcon';
 import ShoesIcon from '@/components/ui/categoryIcon/ShoesIcon';
 import ShuttlecockIcon from '@/components/ui/categoryIcon/ShuttlecockIcon';
-import GoBackButton from '@/components/ui/GoBackButton_temp';
+import GoBackButton from '@/components/ui/GoBackButton';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { useRouter } from 'expo-router';

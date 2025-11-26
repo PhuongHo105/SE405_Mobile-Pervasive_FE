@@ -1,8 +1,8 @@
 import PasswordInput from '@/components/PasswordInput';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import BorderButton from '@/components/ui/BorderButton_temp';
-import FullButton from '@/components/ui/FullButton_temp';
+import BorderButton from '@/components/ui/BorderButton';
+import FullButton from '@/components/ui/FullButton';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { useRouter } from 'expo-router';

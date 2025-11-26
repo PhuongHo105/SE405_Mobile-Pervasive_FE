@@ -1,10 +1,10 @@
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import BorderButton from '@/components/ui/BorderButton_temp';
-import FullButton from '@/components/ui/FullButton_temp';
-import GoBackButton from '@/components/ui/GoBackButton_temp';
+import BorderButton from '@/components/ui/BorderButton';
+import FullButton from '@/components/ui/FullButton';
+import GoBackButton from '@/components/ui/GoBackButton';
 import { IconSymbol } from '@/components/ui/icon-symbol';
-import ProductCard from '@/components/ui/ProductCard_temp';
+import ProductCard from '@/components/ui/ProductCard';
 import {
     CATEGORY_LABEL_MAP,
     PRICE_RANGE,
