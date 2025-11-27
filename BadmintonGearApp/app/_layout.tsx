@@ -79,6 +79,7 @@ export default function RootLayout() {
               <Stack.Screen name="product/[id]" options={{ headerShown: false }} />
               <Stack.Screen name="login" options={{ headerShown: false }} />
               <Stack.Screen name="signup" options={{ headerShown: false }} />
+              <Stack.Screen name="forgotPassword/emailVerification" options={{ headerShown: false }} />
             </Stack>
           )}
           <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
