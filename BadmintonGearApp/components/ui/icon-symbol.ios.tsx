@@ -18,6 +18,7 @@ const MAPPING: IconMapping = {
   'star': 'star',
   'star-half': 'star-half',
   'star-border': 'star-border',
+  'chevron-right': 'chevron-right',
 };
 
 
