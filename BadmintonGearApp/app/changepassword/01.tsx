@@ -48,7 +48,7 @@ const ChangePassword01Screen: FC = () => {
                 ) : null}
                 <ThemedView style={{ marginTop: 30 }}>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <FullButton onPress={() => { router.push("/changepassword/02" as any) }} text='Continue' />
+                        <FullButton onPress={() => { router.push("/changepassword/02" as any) }} style={{ flex: 1 }} text='Continue' />
                     </View>
                 </ThemedView>
             </ThemedView>
