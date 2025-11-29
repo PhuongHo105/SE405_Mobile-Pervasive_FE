@@ -1,7 +1,7 @@
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import FullButton from '@/components/ui/fullbutton';
-import GoBackButton from '@/components/ui/gobackbutton';
+import FullButton from '@/components/ui/FullButton';
+import GoBackButton from '@/components/ui/GoBackButton';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import React, { FC } from 'react';
