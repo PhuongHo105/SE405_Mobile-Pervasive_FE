@@ -44,6 +44,29 @@
     "and": "và",
     "privacyPolicy": "Chính sách bảo mật"
   },
+  "forgotPassword": {
+    "title": "Quên mật khẩu",
+    "confirmEmail": "Xác nhận Email",
+    "confirmDescription": "Nhập địa chỉ email của bạn để xác minh.",
+    "enterEmail": "Nhập email của bạn",
+    "send": "Gửi",
+    "emailVerification": "Mã xác minh",
+    "verificationDescription": "Nhập mã 6 chữ số được gửi đến địa chỉ email của bạn.",
+    "resendCode": "Gửi lại mã",
+    "verify": "Xác minh",
+    "codeRequired": "Vui lòng nhập đầy đủ mã xác minh.",
+    "invalidCode": "Mã xác minh không hợp lệ. Vui lòng thử lại.",
+    "invalidPassword": "Mật khẩu phải có ít nhất 8 ký tự và bao gồm ít nhất một chữ hoa, một chữ thường, một số và một ký tự đặc biệt.",
+    "matchError": "Mật khẩu không khớp. Vui lòng thử lại.",
+    "create": "Tạo mật khẩu mới",
+    "newPassword": "Mật khẩu mới",
+    "newPasswordDescription": "Nhập mật khẩu mới và ghi nhớ nó.",
+    "newPasswordPlaceholder": "Nhập mật khẩu mới của bạn",
+    "confirmNewPassword": "Xác nhận mật khẩu mới",
+    "confirmNewPasswordPlaceholder": "Xác nhận mật khẩu mới của bạn",
+    "successTitle": "Đặt lại mật khẩu thành công",
+    "passwordResetSuccess": "Chúc mừng! Mật khẩu của bạn đã được đặt thành công. Vui lòng tiếp tục đến màn hình đăng nhập để xác minh tài khoản của bạn."
+  },
   "signup": {
     "title": "Đăng ký",
     "alreadyHaveAccount": "Đã có tài khoản?",
@@ -79,8 +102,7 @@
     "shuttlecocks": "Cầu lông",
     "bags": "Túi",
     "other": "Khác"
-  }
-  ,
+  },
   "chat": {
     "title": "Trò chuyện",
     "typeMessage": "Nhập tin nhắn...",
@@ -111,27 +133,27 @@
     "submit": "Gửi",
     "thankYou": "Cảm ơn bạn đã phản hồi!",
     "alertTitleMissingRating": "Thiếu thông tin",
-    "pleaseSelectRating": "Vui lòng chọn số sao đánh giá."    
+    "pleaseSelectRating": "Vui lòng chọn số sao đánh giá."
   },
   "orders": {
     "title": "Lịch sử đơn hàng",
     "ongoing": "Đang xử lý",
     "completed": "Đã hoàn thành",
     "noOngoing": "Không có đơn hàng đang xử lý",
-    "onDescription":" Hiện tại bạn không có đơn hàng nào đang được xử lý. Hãy khám phá sản phẩm và đặt hàng mới.",
+    "onDescription": " Hiện tại bạn không có đơn hàng nào đang được xử lý. Hãy khám phá sản phẩm và đặt hàng mới.",
     "explore": "Khám phá sản phẩm",
     "noCompleted": "Không có đơn hàng đã hoàn thành.",
     "compDescription": "Bạn không có đơn hàng đã hoàn thành trong quá khứ. Hãy bắt đầu mua sắm ngay bây giờ và tạo đơn hàng đầu tiên với chúng tôi.",
     "buyAgain": "Mua lại",
     "rate": "Đánh giá",
-    "cancel": "Hủy", 
+    "cancel": "Hủy",
     "products": "sản phẩm",
     "total": "Tổng cộng",
     "cancelOrderTitle": "Hủy đơn hàng",
     "cancelOrderMessage": "Bạn có chắc chắn muốn hủy đơn hàng này không?",
     "confirmCancel": "Có, hủy đơn hàng"
   },
-  "product":{
+  "product": {
     "reviews": "đánh giá",
     "review": "đánh giá",
     "readMore": "Xem thêm",
@@ -147,7 +169,7 @@
     "relatedProducts": "Sản phẩm liên quan",
     "Reviews": "Đánh giá"
   },
-  "order":{
+  "order": {
     "orderDetail": "Chi tiết đơn hàng",
     "item": "Sản phẩm",
     "shippingAddress": "Địa chỉ giao hàng",
