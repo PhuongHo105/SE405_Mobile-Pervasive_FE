@@ -146,5 +146,25 @@
     "freeShipping": "Miễn phí vận chuyển",
     "relatedProducts": "Sản phẩm liên quan",
     "Reviews": "Đánh giá"
+  },
+  "order":{
+    "orderDetail": "Chi tiết đơn hàng",
+    "item": "Sản phẩm",
+    "shippingAddress": "Địa chỉ giao hàng",
+    "fullName": "Họ và tên",
+    "phoneNumber": "Số điện thoại",
+    "country": "Quốc gia",
+    "city": "Thành phố",
+    "district": "Quận/Huyện",
+    "streetAddress": "Địa chỉ",
+    "orderInformation": "Thông tin đơn hàng",
+    "subtotal": "Tạm tính",
+    "shippingCost": "Phí vận chuyển",
+    "discount": "Giảm giá",
+    "total": "Tổng cộng",
+    "buyAgain": "Mua lại",
+    "rate": "Đánh giá",
+    "cancel": "Hủy",
+    "orderId": "Mã đơn hàng"
   }
 }

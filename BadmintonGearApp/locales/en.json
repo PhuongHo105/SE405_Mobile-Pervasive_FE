@@ -145,5 +145,25 @@
     "freeShipping": "Free Shipping",
     "relatedProducts": "Related Products",
     "Reviews": "Reviews"
+  },
+  "order":{
+    "orderDetail": "Order Detail",
+    "item": "Item",
+    "shippingAddress": "Shipping Address",
+    "fullName": "Full Name",
+    "phoneNumber": "Phone Number",
+    "country": "Country",
+    "city": "City",
+    "district": "District",
+    "streetAddress": "Street Address",
+    "orderInformation": "Order Information",
+    "subtotal": "Subtotal",
+    "shippingCost": "Shipping Cost",
+    "discount": "Discount",
+    "total": "Total",
+    "buyAgain": "Buy Again",
+    "rate": "Rate",
+    "cancel": "Cancel",
+    "orderId": "Order ID"
   }
 }
