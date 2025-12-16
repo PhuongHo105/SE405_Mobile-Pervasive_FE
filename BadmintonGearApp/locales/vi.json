@@ -130,5 +130,21 @@
     "cancelOrderTitle": "Hủy đơn hàng",
     "cancelOrderMessage": "Bạn có chắc chắn muốn hủy đơn hàng này không?",
     "confirmCancel": "Có, hủy đơn hàng"
+  },
+  "product":{
+    "reviews": "đánh giá",
+    "review": "đánh giá",
+    "readMore": "Xem thêm",
+    "showMore": "Xem thêm",
+    "showLess": "Thu gọn",
+    "quantity": "Số lượng",
+    "brand": "Thương hiệu",
+    "addToCart": "Thêm vào giỏ",
+    "buyNow": "Mua ngay",
+    "productId": "Mã sản phẩm",
+    "topRated": "Đánh giá cao",
+    "freeShipping": "Miễn phí vận chuyển",
+    "relatedProducts": "Sản phẩm liên quan",
+    "Reviews": "Đánh giá"
   }
 }

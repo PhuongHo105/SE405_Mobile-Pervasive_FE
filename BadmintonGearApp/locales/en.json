@@ -129,5 +129,21 @@
     "cancelOrderTitle": "Cancel Order",
     "cancelOrderMessage": "Are you sure you want to cancel this order?",
     "confirmCancel": "Yes, Cancel Order"
+  },
+  "product":{
+    "reviews": "reviews",
+    "review": "review",
+    "readMore": "Read more",
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "brand": "Brand",
+    "quantity": "Quantity",
+    "addToCart": "Add to Cart",
+    "buyNow": "Buy Now",
+    "productId": "Product ID",
+    "topRated": "Top Rated",
+    "freeShipping": "Free Shipping",
+    "relatedProducts": "Related Products",
+    "Reviews": "Reviews"
   }
 }

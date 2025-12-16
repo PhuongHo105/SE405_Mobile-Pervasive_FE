@@ -8,6 +8,7 @@ import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { useLocalSearchParams } from 'expo-router';
 import React, { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
     Dimensions,
     ImageBackground,
@@ -47,9 +48,11 @@ const PRODUCT_MOCK = {
 
 const ProductDetailScreen: React.FC = () => {
     const { id } = useLocalSearchParams<ProductRouteParams>();
+    const { t } = useTranslation();
     const [quantity, setQuantity] = useState(1);
     const [activeSlide, setActiveSlide] = useState(0);
     const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
+    const [visibleReviews, setVisibleReviews] = useState(2);
     const scheme = useColorScheme() ?? 'light';
     const palette = Colors[scheme];
     const currentPrice: number = (PRODUCT_MOCK.price) * (1 - (PRODUCT_MOCK.discount ?? 0) / 100);
@@ -61,6 +64,8 @@ const ProductDetailScreen: React.FC = () => {
         : `${product.description.slice(0, DESCRIPTION_PREVIEW_LENGTH).trimEnd()}...`;
 
     const toggleDescription = () => setIsDescriptionExpanded((prev) => !prev);
+    const showMoreReviews = () => setVisibleReviews((prev) => prev + 2);
+    const showLessReviews = () => setVisibleReviews(2);
 
     const decreaseQuantity = () => setQuantity((prev) => (prev > 0 ? prev - 1 : 0));
     const increaseQuantity = () => setQuantity((prev) => prev + 1);
@@ -133,10 +138,10 @@ const ProductDetailScreen: React.FC = () => {
                 <ThemedView style={styles.contentContainer}>
                     <ThemedView style={styles.tagsContainer}>
                         <ThemedView style={[styles.tag, styles.tagTopRated]}>
-                            <ThemedText style={styles.tagText}>Top Rated</ThemedText>
+                            <ThemedText style={styles.tagText}>{t('product.topRated')}</ThemedText>
                         </ThemedView>
                         <ThemedView style={[styles.tag, styles.tagFreeShipping]}>
-                            <ThemedText style={styles.tagText}>Free Shipping</ThemedText>
+                            <ThemedText style={styles.tagText}>{t('product.freeShipping')}</ThemedText>
                         </ThemedView>
                     </ThemedView>
 
@@ -152,25 +157,28 @@ const ProductDetailScreen: React.FC = () => {
 
                     <ThemedView style={styles.ratingContainer}>
                         {renderStars(product.rating)}
-                        <ThemedText style={styles.reviews}>({product.reviews.toLocaleString()} reviews)</ThemedText>
+                        <ThemedText style={styles.reviews}>({product.reviews.toLocaleString()} {t('product.reviews')})</ThemedText>
                     </ThemedView>
-                    <ThemedView style={{ flexDirection: 'row', marginBottom: 16 }}>
-                        <ThemedText type='defaultSemiBold' style={{ fontSize: 18, marginBottom: 10 }}>Brand: </ThemedText>
+                    <ThemedView style={{ flexDirection: 'row', marginBottom: 4 }}>
+                        <ThemedText type='defaultSemiBold' style={{ fontSize: 18, marginBottom: 10 }}>{t('product.brand')}: </ThemedText>
                         <ThemedText style={{ fontSize: 18, color: palette.text }}>{product.brand}</ThemedText>
                     </ThemedView>
+                    {id && (
+                        <ThemedText style={[styles.productId, { color: palette.secondaryText, marginBottom: 10 }]}>{t('product.productId')}: {id}</ThemedText>
+                    )}
                     <ThemedText style={styles.description}>
                         {descriptionText}
                     </ThemedText>
                     {isDescriptionLong && (
                         <TouchableOpacity onPress={toggleDescription}>
                             <ThemedText style={[styles.readMoreText, { color: palette.tint }]}>
-                                {isDescriptionExpanded ? 'Show less' : 'Read more'}
+                                {isDescriptionExpanded ? t('product.showLess') : t('product.readMore')}
                             </ThemedText>
                         </TouchableOpacity>
                     )}
 
                     <ThemedView style={styles.quantityContainer}>
-                        <ThemedText style={styles.quantityLabel}>Quantity</ThemedText>
+                        <ThemedText style={styles.quantityLabel}>{t('product.quantity')}</ThemedText>
                         <ThemedView style={[styles.quantitySelector, { borderColor: palette.border }]}>
                             <TouchableOpacity onPress={decreaseQuantity} style={styles.quantityButton}>
                                 <Svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -187,10 +195,58 @@ const ProductDetailScreen: React.FC = () => {
                         </ThemedView>
                     </ThemedView>
 
-                    {id && (
-                        <ThemedText style={[styles.productId, { color: palette.secondaryText }]}>Product ID: {id}</ThemedText>
-                    )}
+                    <ThemedView style={styles.reviewsContainer}>
+                        <ThemedText type='title' style={styles.reviewsTitle}>
+                            {product.reviews} {product.reviews === 1 ? t('product.review') : t('product.reviews')}
+                        </ThemedText>
+                        <ThemedView style={styles.starsContainer}>{renderStars(product.rating)}</ThemedView>
+
+                        {/* Mock Reviews - Total 10 reviews */}
+                        <ThemedView style={styles.reviewsList}>
+                            {Array.from({ length: Math.min(visibleReviews, 10) }, (_, i) => i + 1).map((reviewId) => (
+                                <ThemedView key={reviewId} style={[styles.reviewItem, { borderBottomColor: palette.border }]}>
+                                    <ThemedView style={styles.reviewHeader}>
+                                        <ThemedText type='defaultSemiBold'>Customer {reviewId}</ThemedText>
+                                        <ThemedView style={styles.reviewStars}>
+                                            {renderStars(reviewId % 2 === 0 ? 4 : 5)}
+                                        </ThemedView>
+                                    </ThemedView>
+                                    <ThemedText style={[styles.reviewComment, { color: palette.secondaryText }]}>
+                                        {reviewId % 2 === 0
+                                            ? 'Good value for money. Product matches the description perfectly.'
+                                            : 'Great product! Very good quality and fast shipping. Highly recommended!'}
+                                    </ThemedText>
+                                </ThemedView>
+                            ))}
+                        </ThemedView>
+
+                        {/* Show More/Less buttons */}
+                        <ThemedView style={styles.reviewButtonsContainer}>
+                            {visibleReviews < 10 && (
+                                <TouchableOpacity onPress={showMoreReviews} style={styles.expandReviewsButton}>
+                                    <ThemedText style={[styles.expandReviewsText, { color: palette.tint }]}>
+                                        {t('product.showMore')}
+                                    </ThemedText>
+                                </TouchableOpacity>
+                            )}
+                            {visibleReviews > 2 && (
+                                <TouchableOpacity onPress={showLessReviews} style={styles.expandReviewsButton}>
+                                    <ThemedText style={[styles.expandReviewsText, { color: palette.tint }]}>
+                                        {t('product.showLess')}
+                                    </ThemedText>
+                                </TouchableOpacity>
+                            )}
+                        </ThemedView>
+                    </ThemedView>
+
+                    <ThemedView style={styles.relatedProductsContainer}>
+                        <ThemedText type='title' style={styles.relatedProductsTitle}>{t('product.relatedProducts')}</ThemedText>
+                        {/* TODO: Render related products here */}
+                    </ThemedView>
+
+
                 </ThemedView>
+
             </ScrollView>
 
             <ThemedView
@@ -381,6 +437,60 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         minWidth: 40,
         textAlign: 'center',
+    },
+    reviewsContainer: {
+        marginBottom: 20,
+    },
+    reviewsTitle: {
+        fontSize: 18,
+        fontWeight: '600',
+        marginBottom: 12,
+    },
+    starsContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 16,
+    },
+    reviewsList: {
+        marginVertical: 16,
+    },
+    reviewItem: {
+        paddingVertical: 12,
+        borderBottomWidth: 1,
+    },
+    reviewHeader: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 8,
+    },
+    reviewStars: {
+        flexDirection: 'row',
+    },
+    reviewComment: {
+        fontSize: 14,
+        lineHeight: 20,
+    },
+    expandReviewsButton: {
+        paddingVertical: 12,
+    },
+    expandReviewsText: {
+        fontSize: 15,
+        fontWeight: '600',
+        textAlign: 'center',
+    },
+    reviewButtonsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        gap: 16,
+    },
+    relatedProductsContainer: {
+        marginTop: 24,
+    },
+    relatedProductsTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 16,
     },
     productId: {
         marginTop: 12,
