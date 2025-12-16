@@ -70,4 +70,11 @@
     "bags": "Túi",
     "other": "Khác"
   }
+  ,
+  "chat": {
+    "title": "Trò chuyện",
+    "typeMessage": "Nhập tin nhắn...",
+    "startConversation": "Bắt đầu cuộc trò chuyện với người bán",
+    "chatWithSeller": "Trò chuyện với người bán"
+  }
 }

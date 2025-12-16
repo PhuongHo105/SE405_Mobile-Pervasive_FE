@@ -2,8 +2,8 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
-import { changeLanguage, getCurrentLanguage } from '@/i18n';
-import React from 'react';
+import { changeLanguage } from '@/i18n';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet } from 'react-native';
 
@@ -14,7 +14,20 @@ interface LanguageSelectorProps {
 const LanguageSelector: React.FC<LanguageSelectorProps> = ({ onLanguageChange }) => {
     const { i18n } = useTranslation();
     const scheme = useColorScheme() ?? 'light';
-    const currentLanguage = getCurrentLanguage();
+    const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+
+    useEffect(() => {
+        // Subscribe to language changes
+        const handleLanguageChanged = (lng: string) => {
+            setCurrentLanguage(lng);
+        };
+
+        i18n.on('languageChanged', handleLanguageChanged);
+
+        return () => {
+            i18n.off('languageChanged', handleLanguageChanged);
+        };
+    }, [i18n]);
 
     const languages = [
         { code: 'en', label: 'English', flag: '🇺🇸' },

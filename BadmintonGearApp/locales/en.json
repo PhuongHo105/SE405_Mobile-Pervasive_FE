@@ -69,5 +69,11 @@
     "shuttlecocks": "Shuttlecocks",
     "bags": "Bags",
     "other": "Other"
+  },
+  "chat":{
+    "title": "Chat",
+    "typeMessage": "Type your message...",
+    "startConversation": "Start a conversation to chat with sellers",
+    "chatWithSeller": "Chat with Seller"
   }
 }
