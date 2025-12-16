@@ -24,6 +24,13 @@
     "getStarted": "Bắt đầu",
     "seeAll": "Xem tất cả"
   },
+  "layout": {
+    "home": "Trang chủ",
+    "categories": "Danh mục",
+    "cart": "Giỏ hàng",
+    "profile": "Hồ sơ",
+    "wishlist": "Yêu thích"
+  },
   "onboarding": {
     "exploreProducts": "Khám phá đa dạng sản phẩm",
     "description": "Khám phá đa dạng sản phẩm ngay trong tầm tay bạn. BadmintonGear cung cấp bộ sưu tập phong phú để đáp ứng nhu cầu của bạn.",

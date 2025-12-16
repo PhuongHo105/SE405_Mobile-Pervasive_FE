@@ -24,6 +24,13 @@
     "getStarted": "Get Started",
     "seeAll": "See All"
   },
+  "layout": {
+    "home": "Home",
+    "categories": "Categories",
+    "cart": "Cart",
+    "profile": "Profile",
+    "wishlist": "Wishlist"
+  },
   "onboarding": {
     "exploreProducts": "Explore a wide range of products",
     "description": "Explore a wide range of products at your fingertips. BadmintonGear offers an extensive collection to suit your needs.",
