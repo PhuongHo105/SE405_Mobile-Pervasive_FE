@@ -1,12 +1,14 @@
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import CustomSwitch from '@/components/ui/CustomSwitch';
+import LanguageSelector from '@/components/ui/LanguageSelector';
 import ProfileMenuItem from '@/components/ui/ProfileMenuItem';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
     Alert,
     ColorSchemeName,
@@ -20,6 +22,7 @@ import {
 import { useThemePreference } from '../providers/ThemePreferenceProvider';
 
 const ProfileScreen: React.FC = () => {
+    const { t } = useTranslation();
     const router = useRouter();
     const schemeRaw = useColorScheme() as ColorSchemeName | null | undefined;
     const scheme: keyof typeof Colors = (schemeRaw ?? 'light') as keyof typeof Colors
@@ -111,6 +114,11 @@ const ProfileScreen: React.FC = () => {
                         value={!!isDarkTheme}
                         onValueChange={setTheme}
                     />
+                </ThemedView>
+
+                <ThemedView style={styles.section}>
+                    <ThemedText style={[styles.sectionTitle, { color: textColor }]}>{t('profile.language')}</ThemedText>
+                    <LanguageSelector />
                 </ThemedView>
                 <View style={{ height: 50 }} />
             </ScrollView>
