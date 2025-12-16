@@ -129,6 +129,15 @@
     "bags": "Túi",
     "other": "Khác"
   },
+  "wishlist": {
+    "title": "Danh sách yêu thích của tôi",
+    "empty": "Danh sách yêu thích của bạn đang trống",
+    "emptyDescription": "Nhấn nút trái tim để bắt đầu lưu các mục yêu thích của bạn.",
+    "explore": "Khám phá sản phẩm",
+    "addToCart": "Thêm vào giỏ hàng",
+    "delete": "Xóa sản phẩm khỏi danh sách yêu thích",
+    "deleteProductFromWishlist": "Bạn có chắc chắn muốn xóa sản phẩm này khỏi danh sách yêu thích không?"
+  },
   "chat": {
     "title": "Trò chuyện",
     "typeMessage": "Nhập tin nhắn...",

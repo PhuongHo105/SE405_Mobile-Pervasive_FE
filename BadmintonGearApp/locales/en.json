@@ -120,6 +120,15 @@
     "delete": "Delete Product from Cart",
     "deleteProductFromCart": "Are you sure that you want to delete this product from your cart?"
   },
+  "wishlist": {
+    "title": "My Wishlist",
+    "empty": "Your wishlist is empty",
+    "emptyDescription": "Tap heart button to start saving your favorite items.",
+    "explore": "Explore Products",
+    "addToCart": "Add to Cart",
+    "delete": "Delete Product from Wishlist",
+    "deleteProductFromWishlist": "Are you sure that you want to delete this product from your wishlist?"
+  },
   "categories": {
     "title": "Categories",
     "rackets": "Rackets",
