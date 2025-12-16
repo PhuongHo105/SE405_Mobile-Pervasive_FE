@@ -102,5 +102,23 @@
     "thankYou": "Cảm ơn bạn đã phản hồi!",
     "alertTitleMissingRating": "Thiếu thông tin",
     "pleaseSelectRating": "Vui lòng chọn số sao đánh giá."    
+  },
+  "orders": {
+    "title": "Lịch sử đơn hàng",
+    "ongoing": "Đang xử lý",
+    "completed": "Đã hoàn thành",
+    "noOngoing": "Không có đơn hàng đang xử lý",
+    "onDescription":" Hiện tại bạn không có đơn hàng nào đang được xử lý. Hãy khám phá sản phẩm và đặt hàng mới.",
+    "explore": "Khám phá sản phẩm",
+    "noCompleted": "Không có đơn hàng đã hoàn thành.",
+    "compDescription": "Bạn không có đơn hàng đã hoàn thành trong quá khứ. Hãy bắt đầu mua sắm ngay bây giờ và tạo đơn hàng đầu tiên với chúng tôi.",
+    "buyAgain": "Mua lại",
+    "rate": "Đánh giá",
+    "cancel": "Hủy", 
+    "products": "sản phẩm",
+    "total": "Tổng cộng",
+    "cancelOrderTitle": "Hủy đơn hàng",
+    "cancelOrderMessage": "Bạn có chắc chắn muốn hủy đơn hàng này không?",
+    "confirmCancel": "Có, hủy đơn hàng"
   }
 }

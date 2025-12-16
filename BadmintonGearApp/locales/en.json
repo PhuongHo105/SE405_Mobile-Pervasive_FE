@@ -101,5 +101,23 @@
     "thankYou": "Thank you for your feedback!",
     "alertTitleMissingRating": "Missing Information",
     "pleaseSelectRating": "Please select a rating."
+  },
+  "orders": {
+    "title": "Order History",
+    "ongoing": "Ongoing",
+    "completed": "Completed",
+    "noOngoing": "No ongoing orders",
+    "onDescription":" We currently don't have any active orders in progress. Feel free to explore our products and place a new order.",
+    "explore": "Explore Products",
+    "noCompleted": "No completed orders.",
+    "compDescription": "We don't have any past orders that have been completed. Start shopping now and create your first order with us.",
+    "buyAgain": "Buy Again",
+    "rate": "Rate",
+    "cancel": "Cancel", 
+    "products": "products",
+    "total": "Total",
+    "cancelOrderTitle": "Cancel Order",
+    "cancelOrderMessage": "Are you sure you want to cancel this order?",
+    "confirmCancel": "Yes, Cancel Order"
   }
 }
