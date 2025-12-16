@@ -188,5 +188,13 @@
     "rate": "Đánh giá",
     "cancel": "Hủy",
     "orderId": "Mã đơn hàng"
+  },
+  "changePassword": {
+    "title": "Đổi mật khẩu",
+    "currentPassword": "Mật khẩu hiện tại",
+    "currentPasswordDescription": "Nhập mật khẩu hiện tại của bạn để đổi mật khẩu.",
+    "enterCurrentPassword": "Nhập mật khẩu hiện tại của bạn",
+    "invalidCurrentPassword": "Mật khẩu hiện tại không đúng. Vui lòng thử lại.",
+    "fillAll": "Vui lòng điền đầy đủ tất cả các trường."
   }
 }
