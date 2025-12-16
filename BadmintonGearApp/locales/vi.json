@@ -19,7 +19,17 @@
     "finish": "Hoàn thành",
     "loading": "Đang tải...",
     "error": "Lỗi",
-    "success": "Thành công"
+    "success": "Thành công",
+    "skipForNow": "Bỏ qua",
+    "getStarted": "Bắt đầu"
+  },
+  "onboarding": {
+    "exploreProducts": "Khám phá đa dạng sản phẩm",
+    "description": "Khám phá đa dạng sản phẩm ngay trong tầm tay bạn. BadmintonGear cung cấp bộ sưu tập phong phú để đáp ứng nhu cầu của bạn.",
+    "unlockOffers": "Mở khóa ưu đãi và giảm giá độc quyền",
+    "offersDescription": "Truy cập các ưu đãi giới hạn thời gian và khuyến mãi đặc biệt chỉ dành cho khách hàng quý giá của chúng tôi.",
+    "safeAndSecurePayments": "Thanh toán an toàn và bảo mật",
+    "paymentsDescription": "BadmintonGear sử dụng mã hóa hàng đầu trong ngành và cổng thanh toán đáng tin cậy để bảo vệ thông tin tài chính của bạn."
   },
   "login": {
     "title": "Đăng nhập",

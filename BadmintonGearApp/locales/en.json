@@ -19,7 +19,17 @@
     "finish": "Finish",
     "loading": "Loading...",
     "error": "Error",
-    "success": "Success"
+    "success": "Success",
+    "skipForNow": "Skip for now",
+    "getStarted": "Get Started"
+  },
+  "onboarding": {
+    "exploreProducts": "Explore a wide range of products",
+    "description": "Explore a wide range of products at your fingertips. BadmintonGear offers an extensive collection to suit your needs.",
+    "unlockOffers": "Unlock exclusive offers and discounts",
+    "offersDescription": "Get access to limited-time deals and special promotions available only to our valued customers.",
+    "safeAndSecurePayments": "Safe and secure payments",
+    "paymentsDescription": "BadmintonGear employs industry-leading encryption and trusted payment gateways to safeguard your financial information."
   },
   "login": {
     "title": "Login",
