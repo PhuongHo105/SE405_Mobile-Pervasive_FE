@@ -21,7 +21,8 @@
     "error": "Lỗi",
     "success": "Thành công",
     "skipForNow": "Bỏ qua",
-    "getStarted": "Bắt đầu"
+    "getStarted": "Bắt đầu",
+    "seeAll": "Xem tất cả"
   },
   "onboarding": {
     "exploreProducts": "Khám phá đa dạng sản phẩm",
@@ -74,9 +75,9 @@
   },
   "home": {
     "welcome": "Chào mừng",
-    "categories": "Danh mục",
-    "featured": "Sản phẩm nổi bật",
-    "newArrivals": "Hàng mới về"
+    "category": "Danh mục",
+    "bestSelling": "Bán chạy nhất",
+    "latestProducts": "Sản phẩm mới nhất"
   },
   "profile": {
     "title": "Hồ sơ",

@@ -14,10 +14,12 @@ import { useColorScheme } from '@/hooks/use-color-scheme';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
 export default function HomeScreen() {
   const router = useRouter();
+  const { t } = useTranslation();
   const schemeRaw = useColorScheme();
   const scheme: keyof typeof Colors = (schemeRaw ?? 'light') as keyof typeof Colors;
   const tint: string = Colors[scheme].tint;
@@ -67,9 +69,9 @@ export default function HomeScreen() {
           </ThemedView>
           <ThemedView>
             <ThemedView style={styles.headerSection}>
-              <ThemedText type="defaultSemiBold" style={{ fontSize: 20 }}>Category</ThemedText>
+              <ThemedText type="defaultSemiBold" style={{ fontSize: 20 }}>{t('home.category')}</ThemedText>
               <Pressable onPress={() => { handleSeeAllCategoriesPress() }}>
-                <ThemedText type="link" style={{ color: tint }}>See All</ThemedText>
+                <ThemedText type="link" style={{ color: tint }}>{t('common.seeAll')}</ThemedText>
               </Pressable>
             </ThemedView>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginBottom: 12 }}>
@@ -91,9 +93,24 @@ export default function HomeScreen() {
           </ThemedView>
           <ThemedView>
             <ThemedView style={styles.headerSection}>
-              <ThemedText type="defaultSemiBold" style={{ fontSize: 20 }}>Lastest Product</ThemedText>
+              <ThemedText type="defaultSemiBold" style={{ fontSize: 20 }}>{t('home.bestSelling')}</ThemedText>
               <Pressable onPress={() => { handleSeeAllProductsPress() }}>
-                <ThemedText type="link" style={{ color: tint }}>See All</ThemedText>
+                <ThemedText type="link" style={{ color: tint }}>{t('common.seeAll')}</ThemedText>
+              </Pressable>
+            </ThemedView>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginBottom: 20 }}>
+              {products.map((product) =>
+              (<ThemedView key={product.id} style={{ marginRight: 12 }}>
+                <ProductCard key={product.id} product={product} />
+              </ThemedView>)
+              )}
+            </ScrollView>
+          </ThemedView>
+          <ThemedView>
+            <ThemedView style={styles.headerSection}>
+              <ThemedText type="defaultSemiBold" style={{ fontSize: 20 }}>{t('home.latestProducts')}</ThemedText>
+              <Pressable onPress={() => { handleSeeAllProductsPress() }}>
+                <ThemedText type="link" style={{ color: tint }}>{t('common.seeAll')}</ThemedText>
               </Pressable>
             </ThemedView>
             <ThemedView style={{ gap: 10, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>

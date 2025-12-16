@@ -21,7 +21,8 @@
     "error": "Error",
     "success": "Success",
     "skipForNow": "Skip for now",
-    "getStarted": "Get Started"
+    "getStarted": "Get Started",
+    "seeAll": "See All"
   },
   "onboarding": {
     "exploreProducts": "Explore a wide range of products",
@@ -74,9 +75,9 @@
   },
   "home": {
     "welcome": "Welcome",
-    "categories": "Categories",
-    "featured": "Featured Products",
-    "newArrivals": "New Arrivals"
+    "category": "Category",
+    "bestSelling": "Best Selling",
+    "latestProducts": "Latest Products"
   },
   "profile": {
     "title": "Profile",
