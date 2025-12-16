@@ -52,7 +52,7 @@
     "and": "and",
     "privacyPolicy": "Privacy Policy"
   },
-  "forgotPassword":{
+  "forgotPassword": {
     "title": "Forgot Password",
     "confirmEmail": "Confirmation Email",
     "confirmDescription": "Enter your email address for verification.",
@@ -105,11 +105,20 @@
     "logout": "Logout"
   },
   "cart": {
-    "title": "Cart",
+    "title": "My Cart",
     "empty": "Your cart is empty",
+    "explore": "Explore Products",
+    "orderInfo": "Order Info",
+    "subtotal": "Subtotal",
+    "shippingCost": "Shipping Cost",
+    "discount": "Discount",
+    "voucherCode": "Voucher Code",
     "total": "Total",
     "checkout": "Checkout",
-    "removeItem": "Remove item"
+    "enterVoucherCode": "Enter Voucher Code",
+    "apply": "Apply",
+    "delete": "Delete Product from Cart",
+    "deleteProductFromCart": "Are you sure that you want to delete this product from your cart?"
   },
   "categories": {
     "rackets": "Rackets",
@@ -156,20 +165,20 @@
     "ongoing": "Ongoing",
     "completed": "Completed",
     "noOngoing": "No ongoing orders",
-    "onDescription":" We currently don't have any active orders in progress. Feel free to explore our products and place a new order.",
+    "onDescription": " We currently don't have any active orders in progress. Feel free to explore our products and place a new order.",
     "explore": "Explore Products",
     "noCompleted": "No completed orders.",
     "compDescription": "We don't have any past orders that have been completed. Start shopping now and create your first order with us.",
     "buyAgain": "Buy Again",
     "rate": "Rate",
-    "cancel": "Cancel", 
+    "cancel": "Cancel",
     "products": "products",
     "total": "Total",
     "cancelOrderTitle": "Cancel Order",
     "cancelOrderMessage": "Are you sure you want to cancel this order?",
     "confirmCancel": "Yes, Cancel Order"
   },
-  "product":{
+  "product": {
     "reviews": "reviews",
     "review": "review",
     "readMore": "Read more",
@@ -185,7 +194,7 @@
     "relatedProducts": "Related Products",
     "Reviews": "Reviews"
   },
-  "order":{
+  "order": {
     "orderDetail": "Order Detail",
     "item": "Item",
     "shippingAddress": "Shipping Address",

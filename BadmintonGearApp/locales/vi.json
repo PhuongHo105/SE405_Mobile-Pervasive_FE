@@ -105,11 +105,20 @@
     "logout": "Đăng xuất"
   },
   "cart": {
-    "title": "Giỏ hàng",
+    "title": "Giỏ hàng của tôi",
     "empty": "Giỏ hàng của bạn đang trống",
+    "explore": "Khám phá sản phẩm",
+    "orderInfo": "Thông tin đơn hàng",
+    "subtotal": "Tạm tính",
+    "shippingCost": "Phí vận chuyển",
+    "discount": "Giảm giá",
+    "voucherCode": "Mã giảm giá",
     "total": "Tổng cộng",
     "checkout": "Thanh toán",
-    "removeItem": "Xóa sản phẩm"
+    "enterVoucherCode": "Nhập mã giảm giá",
+    "apply": "Áp dụng",
+    "delete": "Xóa sản phẩm khỏi giỏ hàng",
+    "deleteProductFromCart": "Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng không?"
   },
   "categories": {
     "rackets": "Vợt",

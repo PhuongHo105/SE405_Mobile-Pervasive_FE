@@ -9,11 +9,13 @@ import { useColorScheme } from '@/hooks/use-color-scheme'
 import { Image } from 'expo-image'
 import { useRouter } from 'expo-router'
 import React, { FC, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, StyleSheet, TextInput } from 'react-native'
 
 
 const CartScreen: FC = () => {
     const router = useRouter();
+    const { t } = useTranslation();
     const scheme = useColorScheme() ?? 'light';
     const palette = Colors[scheme];
     const [total, setTotal] = useState(0);
@@ -115,8 +117,8 @@ const CartScreen: FC = () => {
     return cartItems.length === 0 ? (
         <ThemedView style={[styles.container, { justifyContent: 'center', alignItems: 'center' }]}>
             <Image source={require('@/assets/images/emptyCart.png')} style={{ width: '100%', height: 350 }} />
-            <ThemedText type="title" style={{ textAlign: 'center', marginTop: 30, fontSize: 20 }}>Your cart is empty</ThemedText>
-            <FullButton onPress={() => { router.push('/productList' as any) }} text="Explore Products" />
+            <ThemedText type="title" style={{ textAlign: 'center', marginTop: 30, fontSize: 20 }}>{t('cart.empty')}</ThemedText>
+            <FullButton onPress={() => { router.push('/productList' as any) }} text={t('cart.explore')} />
         </ThemedView>
     ) : (
         <ThemedView>
@@ -124,10 +126,10 @@ const CartScreen: FC = () => {
                 <ThemedView style={styles.headerContainer}>
                     <ThemedView style={styles.leftHeader}>
                         <GoBackButton />
-                        <ThemedText type="title" style={{ fontSize: 20 }}>My Cart</ThemedText>
+                        <ThemedText type="title" style={{ fontSize: 20 }}>{t('cart.title')}</ThemedText>
                     </ThemedView>
                     <Pressable onPress={() => setIsModalVisible(true)}>
-                        <ThemedText style={{ color: palette.tint }}>Voucher Code</ThemedText>
+                        <ThemedText style={{ color: palette.tint }}>{t('cart.voucherCode')}</ThemedText>
                     </Pressable>
                 </ThemedView>
                 <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 24 }}>
@@ -145,27 +147,27 @@ const CartScreen: FC = () => {
                 </ScrollView>
                 <ThemedView style={styles.orderinfo}>
                     <ThemedView style={{ gap: 5 }}>
-                        <ThemedText type="title" style={{ fontSize: 18 }}>Order Info</ThemedText>
+                        <ThemedText type="title" style={{ fontSize: 18 }}>{t('cart.orderInfo')}</ThemedText>
                         <ThemedView style={styles.info}>
-                            <ThemedText type="default" style={{ fontSize: 16, color: palette.secondaryText }}>Total: </ThemedText>
+                            <ThemedText type="default" style={{ fontSize: 16, color: palette.secondaryText }}>{t('cart.subtotal')}: </ThemedText>
                             <ThemedText type="default" style={{ fontSize: 16, color: palette.secondaryText }}>{total.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</ThemedText>
                         </ThemedView>
                         <ThemedView style={styles.info}>
-                            <ThemedText type="default" style={{ fontSize: 16, color: palette.secondaryText }}>Shipping cost: </ThemedText>
+                            <ThemedText type="default" style={{ fontSize: 16, color: palette.secondaryText }}>{t('cart.shippingCost')}: </ThemedText>
                             <ThemedText type="default" style={{ fontSize: 16, color: palette.secondaryText }}>{(0).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</ThemedText>
                         </ThemedView>
                         {discount > 0 && (
                             <ThemedView style={styles.info}>
-                                <ThemedText type="default" style={{ fontSize: 16, color: palette.secondaryText }}>Discount: </ThemedText>
+                                <ThemedText type="default" style={{ fontSize: 16, color: palette.secondaryText }}>{t('cart.discount')}: </ThemedText>
                                 <ThemedText type="default" style={{ fontSize: 16, color: palette.secondaryText }}>- {discount.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</ThemedText>
                             </ThemedView>
                         )}
                         <ThemedView style={styles.info}>
-                            <ThemedText type="title" style={{ fontSize: 18 }}>Total: </ThemedText>
+                            <ThemedText type="title" style={{ fontSize: 18 }}>{t('cart.total')}: </ThemedText>
                             <ThemedText type="title" style={{ fontSize: 18 }}>{currentTotal.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</ThemedText>
                         </ThemedView>
                     </ThemedView>
-                    <FullButton onPress={handleCheckout} text={`Checkout (${numberOfChecked})`} />
+                    <FullButton onPress={handleCheckout} text={`${t('cart.checkout')} (${numberOfChecked})`} />
                 </ThemedView>
             </ThemedView>
             <Modal
@@ -185,15 +187,15 @@ const CartScreen: FC = () => {
                         onPress={() => setIsModalVisible(false)}
                     />
                     <ThemedView style={[styles.modalContent, { backgroundColor: palette.modalBackground }]}>
-                        <ThemedText style={styles.modalTitle}>Voucher Code</ThemedText>
+                        <ThemedText style={styles.modalTitle}>{t('cart.voucherCode')}</ThemedText>
                         <TextInput
                             style={styles.input}
-                            placeholder="Enter Voucher Code"
+                            placeholder={t('cart.enterVoucherCode')}
                             placeholderTextColor="#999"
                         />
                         <FullButton
                             onPress={() => setIsModalVisible(false)}
-                            text="Apply"
+                            text={t('cart.apply')}
                         />
                     </ThemedView>
                 </KeyboardAvoidingView>
@@ -215,10 +217,10 @@ const CartScreen: FC = () => {
                         onPress={() => setIsDeleteModalVisible(false)}
                     />
                     <ThemedView style={[styles.modalContent, { backgroundColor: palette.modalBackground }]}>
-                        <ThemedText style={styles.modalTitle}>Delete</ThemedText>
-                        <ThemedText style={{ marginTop: 8 }}>Delete product from cart</ThemedText>
-                        <FullButton onPress={confirmDelete} text="Delete" />
-                        <BorderButton onPress={cancelDelete} text="Cancel" />
+                        <ThemedText style={styles.modalTitle}>{t('cart.delete')}</ThemedText>
+                        <ThemedText style={{ marginTop: 8 }}>{t('cart.deleteProductFromCart')}</ThemedText>
+                        <FullButton onPress={confirmDelete} text={t('common.delete')} />
+                        <BorderButton onPress={cancelDelete} text={t('common.cancel')} />
                     </ThemedView>
                 </KeyboardAvoidingView>
             </Modal>
