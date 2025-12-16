@@ -45,12 +45,12 @@ export default function HomeScreen() {
     pushProductList(category ? { category } : undefined);
   };
   const categories = [
-    { id: '1', name: 'Racket', image: <RacketIcon width={48} height={48} />, filter: 1 },
-    { id: '2', name: 'Shuttlecock', image: <ShuttlecockIcon width={48} height={48} />, filter: 2 },
-    { id: '3', name: 'Shoes', image: <ShoesIcon width={48} height={48} />, filter: 3 },
-    { id: '4', name: 'Clothes', image: <ClothesIcon width={48} height={48} />, filter: 4 },
-    { id: '5', name: 'Bags', image: <BagsIcon width={48} height={48} />, filter: 5 },
-    { id: '6', name: 'Others', image: <OtherIcon width={48} height={48} /> },
+    { id: '1', name: t('categories.rackets'), image: <RacketIcon width={48} height={48} />, filter: 1 },
+    { id: '2', name: t('categories.shuttlecocks'), image: <ShuttlecockIcon width={48} height={48} />, filter: 2 },
+    { id: '3', name: t('categories.shoes'), image: <ShoesIcon width={48} height={48} />, filter: 3 },
+    { id: '4', name: t('categories.clothes'), image: <ClothesIcon width={48} height={48} />, filter: 4 },
+    { id: '5', name: t('categories.bags'), image: <BagsIcon width={48} height={48} />, filter: 5 },
+    { id: '6', name: t('categories.other'), image: <OtherIcon width={48} height={48} /> },
   ];
   const products = [
     { id: '1', name: 'Product 1', price: 100000, discount: 20, image: require('../../assets/images/product1.png') },

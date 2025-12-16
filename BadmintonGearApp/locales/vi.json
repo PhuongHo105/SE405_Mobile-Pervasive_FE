@@ -121,6 +121,7 @@
     "deleteProductFromCart": "Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng không?"
   },
   "categories": {
+    "title": "Danh mục",
     "rackets": "Vợt",
     "shoes": "Giày",
     "clothes": "Quần áo",
