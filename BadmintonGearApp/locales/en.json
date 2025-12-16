@@ -91,5 +91,15 @@
     "more": "For any query, you can visit our website for",
     "help": "Help Center",
     "at": "at BadmintonGear.com"
+  },
+  "feedback": {
+    "title": "Feedback",
+    "yourRating": "Your Rating:",
+    "yourComment": "Your Comment:",
+    "commentDescription": "Share your thoughts...",
+    "submit": "Submit",
+    "thankYou": "Thank you for your feedback!",
+    "alertTitleMissingRating": "Missing Information",
+    "pleaseSelectRating": "Please select a rating."
   }
 }

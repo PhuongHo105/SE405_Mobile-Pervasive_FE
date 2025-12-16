@@ -92,5 +92,15 @@
     "more": "Đối với bất kỳ thắc mắc nào, bạn có thể truy cập trang web của chúng tôi để",
     "help": "Trung tâm trợ giúp",
     "at": "tại BadmintonGear.com"
+  },
+  "feedback": {
+    "title": "Phản hồi",
+    "yourRating": "Đánh giá của bạn:",
+    "yourComment": "Bình luận của bạn:",
+    "commentDescription": "Hãy chia sẻ cảm nhận của bạn...",
+    "submit": "Gửi",
+    "thankYou": "Cảm ơn bạn đã phản hồi!",
+    "alertTitleMissingRating": "Thiếu thông tin",
+    "pleaseSelectRating": "Vui lòng chọn số sao đánh giá."    
   }
 }
