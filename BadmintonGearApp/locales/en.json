@@ -22,7 +22,8 @@
     "success": "Success",
     "skipForNow": "Skip for now",
     "getStarted": "Get Started",
-    "seeAll": "See All"
+    "seeAll": "See All",
+    "retry": "Retry"
   },
   "layout": {
     "home": "Home",
@@ -294,5 +295,44 @@
     "minPrice": "Giá thấp nhất",
     "maxPrice": "Giá cao nhất",
     "apply": "Apply"
+  },
+  "shippingAddress": {
+    "title": "Shipping Address",
+    "fields": {
+      "fullName": "Full Name",
+      "phone": "Phone Number",
+      "country": "Country",
+      "province": "Province / City",
+      "district": "District",
+      "detailedAddress": "Detailed Address"
+    },
+    "placeholders": {
+      "fullName": "Enter your full name",
+      "phone": "Enter your phone number",
+      "country": "Select country",
+      "selectCountryFirst": "Select a country first",
+      "selectProvince": "Select province / city",
+      "selectProvinceFirst": "Select province first",
+      "selectDistrict": "Select district",
+      "loadingProvinces": "Loading provinces...",
+      "loadingDistricts": "Loading districts...",
+      "detailedAddress": "Street, building, house number"
+    },
+    "dropdown": {
+      "selectOption": "Select an option",
+      "noOptions": "No options available",
+      "noCountries": "No countries available",
+      "noProvinces": "No provinces available",
+      "noDistricts": "No districts available"
+    },
+    "validation": {
+      "fullNameRequired": "Full name is required.",
+      "phoneRequired": "Phone number is required.",
+      "detailedAddressRequired": "Detailed address is required.",
+      "provinceDistrictRequired": "Please select province and district."
+    },
+    "errors": {
+      "loadAddress": "Unable to load address data. Check your connection and try again."
+    }
   }
 }

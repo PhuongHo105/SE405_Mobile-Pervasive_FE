@@ -22,7 +22,8 @@
     "success": "Thành công",
     "skipForNow": "Bỏ qua",
     "getStarted": "Bắt đầu",
-    "seeAll": "Xem tất cả"
+    "seeAll": "Xem tất cả",
+    "retry": "Thử lại"
   },
   "layout": {
     "home": "Trang chủ",
@@ -301,5 +302,44 @@
     "minPrice": "Giá thấp nhất",
     "maxPrice": "Giá cao nhất",
     "apply":"Áp dụng"
+  },
+  "shippingAddress": {
+    "title": "Địa chỉ giao hàng",
+    "fields": {
+      "fullName": "Họ và tên",
+      "phone": "Số điện thoại",
+      "country": "Quốc gia",
+      "province": "Tỉnh / Thành phố",
+      "district": "Quận / Huyện",
+      "detailedAddress": "Địa chỉ chi tiết"
+    },
+    "placeholders": {
+      "fullName": "Nhập họ và tên",
+      "phone": "Nhập số điện thoại",
+      "country": "Chọn quốc gia",
+      "selectCountryFirst": "Vui lòng chọn quốc gia trước",
+      "selectProvince": "Chọn tỉnh / thành phố",
+      "selectProvinceFirst": "Chọn tỉnh / thành phố trước",
+      "selectDistrict": "Chọn quận / huyện",
+      "loadingProvinces": "Đang tải danh sách tỉnh/thành...",
+      "loadingDistricts": "Đang tải danh sách quận/huyện...",
+      "detailedAddress": "Số nhà, đường, toà nhà..."
+    },
+    "dropdown": {
+      "selectOption": "Chọn một mục",
+      "noOptions": "Không có lựa chọn",
+      "noCountries": "Không có quốc gia",
+      "noProvinces": "Không có tỉnh/thành",
+      "noDistricts": "Không có quận/huyện"
+    },
+    "validation": {
+      "fullNameRequired": "Vui lòng nhập họ và tên.",
+      "phoneRequired": "Vui lòng nhập số điện thoại.",
+      "detailedAddressRequired": "Vui lòng nhập địa chỉ chi tiết.",
+      "provinceDistrictRequired": "Vui lòng chọn tỉnh/thành và quận/huyện."
+    },
+    "errors": {
+      "loadAddress": "Không thể tải địa chỉ. Kiểm tra kết nối và thử lại."
+    }
   }
 }
