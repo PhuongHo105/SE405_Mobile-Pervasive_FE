@@ -282,5 +282,17 @@
     "priceRange": "Price Range (VND)",
     "minPrice": "Min Price",
     "maxPrice": "Max Price"
+  },
+  "search": {
+    "all": "Tất cả",
+    "search": "Tìm kiếm...",
+    "category": "Danh mục",
+    "brand": "Thương hiệu",
+    "priceRange": "Khoảng giá (VND)",
+    "min": "Tối thiểu",
+    "max": "Tối đa",
+    "minPrice": "Giá thấp nhất",
+    "maxPrice": "Giá cao nhất",
+    "apply": "Apply"
   }
 }
