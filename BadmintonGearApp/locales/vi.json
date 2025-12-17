@@ -231,5 +231,53 @@
     "enterCurrentPassword": "Nhập mật khẩu hiện tại của bạn",
     "invalidCurrentPassword": "Mật khẩu hiện tại không đúng. Vui lòng thử lại.",
     "fillAll": "Vui lòng điền đầy đủ tất cả các trường."
+  },
+  "privacy": {
+    "title": "Chính sách quyền riêng tư",
+    "intro": "Tại BadmintonGear, chúng tôi cam kết bảo vệ quyền riêng tư và bảo mật thông tin cá nhân của người dùng. Chính sách quyền riêng tư này mô tả cách chúng tôi thu thập, sử dụng, chia sẻ và bảo vệ thông tin được thu thập thông qua ứng dụng thương mại điện tử của chúng tôi. Khi sử dụng BadmintonGear, bạn đồng ý với các thực tiễn được mô tả trong chính sách này.",
+
+    "section1": {
+      "title": "1. Thu thập thông tin:",
+      "item1": " - Thông tin cá nhân: Chúng tôi có thể thu thập các thông tin cá nhân như tên, địa chỉ, email và số điện thoại khi bạn tạo tài khoản, thực hiện mua hàng hoặc tương tác với dịch vụ của chúng tôi.",
+      "item2": " - Thông tin giao dịch: Chúng tôi thu thập thông tin liên quan đến các giao dịch mua của bạn, bao gồm lịch sử đơn hàng, phương thức thanh toán và thông tin giao hàng.",
+      "item3": " - Dữ liệu sử dụng: Chúng tôi có thể thu thập dữ liệu về cách bạn tương tác với ứng dụng, chẳng hạn như hành vi duyệt, tìm kiếm và các tùy chọn cá nhân."
+    },
+
+    "section2": {
+      "title": "2. Sử dụng thông tin:",
+      "item1": " - Cung cấp dịch vụ: Thông tin thu thập được sử dụng để xử lý đơn hàng, giao sản phẩm và hỗ trợ khách hàng.",
+      "item2": " - Cá nhân hóa: Chúng tôi có thể sử dụng thông tin của bạn để cá nhân hóa trải nghiệm mua sắm, đề xuất sản phẩm và hiển thị nội dung phù hợp.",
+      "item3": " - Liên lạc: Chúng tôi có thể sử dụng thông tin liên hệ của bạn để gửi các thông báo quan trọng, ưu đãi hoặc bản tin. Bạn có thể từ chối nhận các thông tin này bất kỳ lúc nào."
+    },
+
+    "section3": {
+      "title": "3. Chia sẻ thông tin:",
+      "item1": " - Đối tác dịch vụ bên thứ ba: Chúng tôi có thể chia sẻ thông tin của bạn với các đối tác đáng tin cậy để hỗ trợ vận hành ứng dụng, xử lý đơn hàng và cải thiện dịch vụ.",
+      "item2": " - Tuân thủ pháp luật: Chúng tôi có thể tiết lộ thông tin cá nhân khi được yêu cầu bởi pháp luật hoặc theo yêu cầu hợp pháp từ cơ quan có thẩm quyền."
+    },
+
+    "section4": {
+      "title": "4. Bảo mật dữ liệu:",
+      "item1": " - Chúng tôi áp dụng các biện pháp bảo mật phù hợp để bảo vệ thông tin của bạn khỏi truy cập trái phép, thay đổi, tiết lộ hoặc phá hủy.",
+      "item2": " - Tuy nhiên, không có phương thức truyền tải dữ liệu hoặc lưu trữ điện tử nào an toàn tuyệt đối. Chúng tôi không thể đảm bảo an toàn tuyệt đối cho thông tin của bạn."
+    },
+
+    "section5": {
+      "title": "5. Quyền của người dùng:",
+      "item1": " - Truy cập và cập nhật: Bạn có quyền truy cập, chỉnh sửa hoặc cập nhật thông tin cá nhân được lưu trữ trong ứng dụng.",
+      "item2": " - Lưu trữ dữ liệu: Chúng tôi lưu trữ thông tin cá nhân của bạn trong thời gian cần thiết để cung cấp dịch vụ và tuân thủ các nghĩa vụ pháp lý."
+    },
+
+    "section6": {
+      "title": "6. Quyền riêng tư của trẻ em:",
+      "item1": " - BadmintonGear không dành cho trẻ em dưới 13 tuổi. Chúng tôi không cố ý thu thập hoặc yêu cầu thông tin cá nhân từ trẻ em."
+    },
+
+    "section7": {
+      "title": "7. Cập nhật chính sách quyền riêng tư:",
+      "item1": " - Chúng tôi có quyền cập nhật Chính sách quyền riêng tư này theo thời gian. Mọi thay đổi sẽ được đăng tải trên ứng dụng và có hiệu lực ngay khi được công bố."
+    },
+
+    "outro": "Nếu bạn có bất kỳ câu hỏi hoặc thắc mắc nào liên quan đến Chính sách quyền riêng tư, vui lòng liên hệ bộ phận hỗ trợ khách hàng. Khi sử dụng BadmintonGear, bạn xác nhận rằng mình đã đọc, hiểu và đồng ý với các điều khoản của chính sách này."
   }
 }
