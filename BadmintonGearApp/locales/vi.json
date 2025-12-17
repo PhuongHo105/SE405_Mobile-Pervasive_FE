@@ -279,5 +279,15 @@
     },
 
     "outro": "Nếu bạn có bất kỳ câu hỏi hoặc thắc mắc nào liên quan đến Chính sách quyền riêng tư, vui lòng liên hệ bộ phận hỗ trợ khách hàng. Khi sử dụng BadmintonGear, bạn xác nhận rằng mình đã đọc, hiểu và đồng ý với các điều khoản của chính sách này."
+  },
+  "products": {
+    "all": "Tất cả",
+    "search": "Tìm kiếm",
+    "empty": "Không có sản phẩm nào",
+    "category": "Danh mục",
+    "brand": "Thương hiệu",
+    "priceRange": "Khoảng giá (VND)",
+    "minPrice": "Giá thấp nhất",
+    "maxPrice": "Giá cao nhất"
   }
 }

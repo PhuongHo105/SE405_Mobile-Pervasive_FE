@@ -272,5 +272,15 @@
       "item1": " - We reserve the right to update this Privacy Policy from time to time. Any changes will be posted on our app, and the revised policy will be effective upon posting."
     },
     "outro": "If you have any questions or concerns about our Privacy Policy, please contact our customer support. By using BadmintonGear, you acknowledge that you have read and understood this Privacy Policy and agree to its terms and conditions."
+  },
+  "products": {
+    "all": "All",
+    "search": "Search",
+    "empty": "No products found",
+    "category": "Category",
+    "brand": "Brand",
+    "priceRange": "Price Range (VND)",
+    "minPrice": "Min Price",
+    "maxPrice": "Max Price"
   }
 }
