@@ -124,7 +124,9 @@
     "enterVoucherCode": "Nhập mã giảm giá",
     "apply": "Áp dụng",
     "delete": "Xóa sản phẩm khỏi giỏ hàng",
-    "deleteProductFromCart": "Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng không?"
+    "deleteProductFromCart": "Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng không?",
+    "checkouttitle": "Vật phẩm",
+    "shortdelete": "Xóa"
   },
   "categories": {
     "title": "Danh mục",
