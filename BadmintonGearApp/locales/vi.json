@@ -444,5 +444,10 @@
     "errors": {
       "loadAddress": "Không thể tải địa chỉ. Kiểm tra kết nối và thử lại."
     }
+  },
+  "checkoutResult": {
+    "title": "Đơn hàng của bạn đã được đặt thành công",
+    "subtitle": "Cảm ơn bạn đã lựa chọn chúng tôi! Hãy tiếp tục mua sắm và khám phá nhiều sản phẩm đa dạng. Chúc bạn mua sắm vui vẻ!",
+    "continueShopping": "Tiếp tục mua sắm"
   }
 }

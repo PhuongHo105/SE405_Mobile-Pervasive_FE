@@ -437,5 +437,10 @@
     "errors": {
       "loadAddress": "Unable to load addresses. Check your connection and try again."
     }
+  },
+  "checkoutResult": {
+    "title": "Your order has been placed successfully",
+    "subtitle": "Thank you for choosing us! Feel free to continue shopping and explore our wide range of products. Happy Shopping!",
+    "continueShopping": "Continue Shopping"
   }
 }

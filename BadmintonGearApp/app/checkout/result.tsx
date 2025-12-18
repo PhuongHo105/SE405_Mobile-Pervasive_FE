@@ -10,9 +10,12 @@ import {
     ColorSchemeName,
     StyleSheet
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
+
 
 const ResultCheckoutScreen: React.FC = () => {
     const router = useRouter();
+    const { t } = useTranslation();
     const schemeRaw = useColorScheme() as ColorSchemeName | undefined | null;
     const scheme: keyof typeof Colors = (schemeRaw ?? 'light') as keyof typeof Colors;
 
@@ -27,13 +30,13 @@ const ResultCheckoutScreen: React.FC = () => {
                     />
                 </ThemedView>
                 <ThemedText type="title" style={styles.heading}>
-                    Your order has been placed successfully
+                    {t('checkoutResult.title')}
                 </ThemedText>
                 <ThemedText style={[styles.subtitle, { color: Colors[scheme].secondaryText, textAlign: 'center' }]}>
-                    Thank you for choosing us! Feel free to continue shopping and explore our wide range of products. Happy Shopping!
+                    {t('checkoutResult.subtitle')}
                 </ThemedText>
                 <ThemedView style={styles.buttonsContainer}>
-                    <FullButton text="Continue Shopping" onPress={() => { router.push('/') }} />
+                    <FullButton text={t('checkoutResult.continueShopping')} onPress={() => { router.push('/') }} />
                 </ThemedView>
             </ThemedView>
         </ThemedView>
