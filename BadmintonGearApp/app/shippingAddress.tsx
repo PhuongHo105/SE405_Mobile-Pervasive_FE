@@ -39,7 +39,7 @@ const GITHUB_FALLBACK_URL =
     'https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json';
 
 const ShippingAddressScreen: FC = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['common', 'shippingAddress']);
     const schemeRaw = useColorScheme();
     const scheme: keyof typeof Colors = (schemeRaw ?? 'light') as keyof typeof Colors;
     const [shippingAddress, setShippingAddress] = React.useState({
@@ -414,7 +414,7 @@ const ShippingAddressScreen: FC = () => {
                                         {addressError}
                                     </ThemedText>
                                     <Pressable onPress={loadAddresses} style={{ paddingHorizontal: 10, paddingVertical: 6, borderWidth: 1, borderColor: Colors[scheme].tint, borderRadius: 6 }}>
-                                        <ThemedText style={{ color: Colors[scheme].tint }}>{t('shippingAddress.actions.retry')}</ThemedText>
+                                        <ThemedText style={{ color: Colors[scheme].tint }}>{t('common:retry')}</ThemedText>
                                     </Pressable>
                                 </ThemedView>
                             )}
@@ -456,7 +456,7 @@ const ShippingAddressScreen: FC = () => {
                     {error ? (
                         <ThemedText style={[styles.errorText, { color: Colors[scheme].tint, textAlign: 'center', marginTop: 10 }]}>{error}</ThemedText>
                     ) : null}
-                    <FullButton text={mode === 'edit' ? t('shippingAddress.actions.save') : t('shippingAddress.actions.edit')} onPress={() => {
+                    <FullButton text={mode === 'edit' ? t('common:save') : t('common:edit')} onPress={() => {
                         if (mode === 'edit') {
                             saveAddress();
                         }

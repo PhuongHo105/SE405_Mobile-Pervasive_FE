@@ -23,7 +23,9 @@
     "skipForNow": "Bỏ qua",
     "getStarted": "Bắt đầu",
     "seeAll": "Xem tất cả",
-    "retry": "Thử lại"
+    "retry": "Thử lại",
+    "signupWithGoogle": "Đăng ký bằng Google",
+    "fullName": "Họ và tên"
   },
   "layout": {
     "home": "Trang chủ",
@@ -79,7 +81,10 @@
   "signup": {
     "title": "Đăng ký",
     "alreadyHaveAccount": "Đã có tài khoản?",
-    "createAccount": "Tạo tài khoản"
+    "createAccount": "Tạo tài khoản",
+    "fullNamePlaceholder": "Nhập họ và tên",
+    "emailPlaceholder": "Nhập email",
+    "passwordPlaceholder": "Nhập mật khẩu"
   },
   "home": {
     "welcome": "Chào mừng",

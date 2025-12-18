@@ -23,7 +23,9 @@
     "skipForNow": "Skip for now",
     "getStarted": "Get Started",
     "seeAll": "See All",
-    "retry": "Retry"
+    "retry": "Retry",
+    "signupWithGoogle": "Sign Up with Google",
+    "fullName": "Fullname"
   },
   "layout": {
     "home": "Home",
@@ -79,7 +81,10 @@
   "signup": {
     "title": "Sign Up",
     "alreadyHaveAccount": "Already have an account?",
-    "createAccount": "Create Account"
+    "createAccount": "Create Account",
+    "fullNamePlaceholder": "Enter your fullname",
+    "emailPlaceholder": "Enter your email",
+    "passwordPlaceholder": "Enter your password"
   },
   "home": {
     "welcome": "Welcome",
@@ -285,15 +290,15 @@
     "maxPrice": "Max Price"
   },
   "search": {
-    "all": "Tất cả",
-    "search": "Tìm kiếm...",
-    "category": "Danh mục",
-    "brand": "Thương hiệu",
-    "priceRange": "Khoảng giá (VND)",
-    "min": "Tối thiểu",
-    "max": "Tối đa",
-    "minPrice": "Giá thấp nhất",
-    "maxPrice": "Giá cao nhất",
+    "all": "All",
+    "search": "Search...",
+    "category": "Category",
+    "brand": "Brand",
+    "priceRange": "Price Range (VND)",
+    "min": "Min",
+    "max": "Max",
+    "minPrice": "Min Price",
+    "maxPrice": "Max Price",
     "apply": "Apply"
   },
   "shippingAddress": {
