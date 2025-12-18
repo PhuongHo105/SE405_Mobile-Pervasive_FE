@@ -339,5 +339,68 @@
     "errors": {
       "loadAddress": "Unable to load address data. Check your connection and try again."
     }
+  },
+  "terms": {
+    "title": "Terms and Conditions",
+    "intro": "Welcome to BadmintonGear! These Terms and Conditions (\"Terms\") govern your use of our e-commerce app. By accessing or using BadmintonGear, you agree to be bound by these Terms. Please read them carefully before proceeding.",
+
+    "section1": {
+      "title": "1. Account Registration:",
+      "bullet1": " - You must create an account to use certain features of BadmintonGear.",
+      "bullet2": " - You are responsible for providing accurate and up-to-date information during the registration process.",
+      "bullet3": " - You must safeguard your account credentials and notify us immediately of any unauthorized access or use of your account."
+    },
+    "section2": {
+      "title": "2. Product Information and Pricing:",
+      "bullet1": " - BadmintonGear strives to provide accurate product descriptions, images, and pricing information.",
+      "bullet2": " - We reserve the right to modify product details and prices without prior notice.",
+      "bullet3": " - In the event of an error, we may cancel or refuse orders placed for incorrectly priced products."
+    },
+    "section3": {
+      "title": "3. Order Placement and Fulfillment:",
+      "bullet1": " - By placing an order on BadmintonGear, you agree to purchase the selected products at the stated price.",
+      "bullet2": " - We reserve the right to accept or reject any order, and we may cancel orders due to product unavailability, pricing errors, or suspected fraudulent activity.",
+      "bullet3": " - Once an order is confirmed, we will make reasonable efforts to fulfill and deliver it in a timely manner."
+    },
+    "section4": {
+      "title": "4. Payment:",
+      "bullet1": " - BadmintonGear supports various payment methods, including credit/debit cards and online payment platforms.",
+      "bullet2": " - By providing payment information, you represent and warrant that you are authorized to use the chosen payment method.",
+      "bullet3": " - All payments are subject to verification and approval by relevant financial institutions."
+    },
+    "section5": {
+      "title": "5. Shipping and Delivery:",
+      "bullet1": " - BadmintonGear will make reasonable efforts to ensure timely delivery of products.",
+      "bullet2": " - Shipping times may vary based on factors beyond our control, such as location, weather conditions, or carrier delays.",
+      "bullet3": " - Risk of loss or damage to products passes to you upon delivery."
+    },
+    "section6": {
+      "title": "6. Returns and Refunds:",
+      "bullet1": " - BadmintonGear's return and refund policies are outlined separately and govern the process for returning products and seeking refunds.",
+      "bullet2": " - Certain products may be non-returnable or subject to specific conditions."
+    },
+    "section7": {
+      "title": "7. Intellectual Property:",
+      "bullet1": " - BadmintonGear and its content, including logos, trademarks, text, images, and software, are protected by intellectual property rights.",
+      "bullet2": " - You may not use, reproduce, modify, distribute, or display any part of BadmintonGear without our prior written consent."
+    },
+    "section8": {
+      "title": "8. User Conduct:",
+      "bullet1": " - You agree to use BadmintonGear in compliance with applicable laws and regulations.",
+      "bullet2": " - You will not engage in any activity that disrupts or interferes with the functioning of BadmintonGear or infringes upon the rights of others.",
+      "bullet3": " - Any unauthorized use or attempt to access restricted areas or user accounts is strictly prohibited."
+    },
+    "section9": {
+      "title": "9. Limitation of Liability:",
+      "bullet1": " - BadmintonGear and its affiliates shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from the use or inability to use our app or any products purchased through it.",
+      "bullet2": " - We do not guarantee the accuracy, completeness, or reliability of information provided on BadmintonGear."
+    },
+    "section10": {
+      "title": "10. Governing Law:",
+      "bullet1": " - These Terms shall be governed by and construed in accordance with the laws of [Jurisdiction].",
+      "bullet2": " - Any disputes arising out of or relating to these Terms shall be resolved in the courts of [Jurisdiction]."
+    },
+
+    "footer": "If you have any questions or concerns regarding these Terms and Conditions, please contact our customer support. By using BadmintonGear, you acknowledge that you have read, understood, and agreed to these Terms and Conditions."
   }
 }

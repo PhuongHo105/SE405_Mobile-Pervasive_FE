@@ -346,5 +346,68 @@
     "errors": {
       "loadAddress": "Không thể tải địa chỉ. Kiểm tra kết nối và thử lại."
     }
+  },
+  "terms": {
+    "title": "Điều khoản và Điều kiện",
+    "intro": "Chào mừng bạn đến với BadmintonGear! Các Điều khoản và Điều kiện (\"Điều khoản\") này quy định việc bạn sử dụng ứng dụng thương mại điện tử của chúng tôi. Khi truy cập hoặc sử dụng BadmintonGear, bạn đồng ý bị ràng buộc bởi các Điều khoản này. Vui lòng đọc kỹ trước khi tiếp tục.",
+
+    "section1": {
+      "title": "1. Đăng ký tài khoản:",
+      "bullet1": " - Bạn cần tạo tài khoản để sử dụng một số tính năng của BadmintonGear.",
+      "bullet2": " - Bạn chịu trách nhiệm cung cấp thông tin chính xác và cập nhật trong quá trình đăng ký.",
+      "bullet3": " - Bạn cần bảo mật thông tin đăng nhập và thông báo ngay cho chúng tôi nếu phát hiện truy cập trái phép."
+    },
+    "section2": {
+      "title": "2. Thông tin sản phẩm và giá:",
+      "bullet1": " - BadmintonGear cố gắng cung cấp mô tả, hình ảnh và giá sản phẩm chính xác.",
+      "bullet2": " - Chúng tôi có quyền thay đổi thông tin sản phẩm và giá mà không cần báo trước.",
+      "bullet3": " - Nếu có lỗi, chúng tôi có thể hủy hoặc từ chối đơn hàng đặt cho sản phẩm có giá hiển thị sai."
+    },
+    "section3": {
+      "title": "3. Đặt hàng và xử lý đơn:",
+      "bullet1": " - Khi đặt hàng trên BadmintonGear, bạn đồng ý mua sản phẩm đã chọn theo giá được niêm yết.",
+      "bullet2": " - Chúng tôi có quyền chấp nhận hoặc từ chối đơn hàng; đồng thời có thể hủy đơn do hết hàng, sai giá hoặc nghi ngờ gian lận.",
+      "bullet3": " - Sau khi xác nhận đơn, chúng tôi sẽ nỗ lực hợp lý để giao hàng đúng thời gian."
+    },
+    "section4": {
+      "title": "4. Thanh toán:",
+      "bullet1": " - BadmintonGear hỗ trợ nhiều phương thức thanh toán, bao gồm thẻ tín dụng/ghi nợ và các nền tảng thanh toán trực tuyến.",
+      "bullet2": " - Khi cung cấp thông tin thanh toán, bạn xác nhận rằng bạn có quyền sử dụng phương thức thanh toán đó.",
+      "bullet3": " - Mọi thanh toán có thể cần được xác minh và phê duyệt bởi các tổ chức tài chính liên quan."
+    },
+    "section5": {
+      "title": "5. Vận chuyển và giao hàng:",
+      "bullet1": " - BadmintonGear sẽ nỗ lực hợp lý để giao hàng đúng thời gian.",
+      "bullet2": " - Thời gian vận chuyển có thể thay đổi do các yếu tố ngoài tầm kiểm soát như địa điểm, thời tiết, hoặc chậm trễ từ đơn vị vận chuyển.",
+      "bullet3": " - Rủi ro mất mát hoặc hư hỏng sẽ chuyển sang bạn khi hàng được giao."
+    },
+    "section6": {
+      "title": "6. Đổi trả và hoàn tiền:",
+      "bullet1": " - Chính sách đổi trả/hoàn tiền của BadmintonGear được quy định riêng và áp dụng cho quy trình đổi trả hoặc yêu cầu hoàn tiền.",
+      "bullet2": " - Một số sản phẩm có thể không được đổi trả hoặc có điều kiện áp dụng."
+    },
+    "section7": {
+      "title": "7. Sở hữu trí tuệ:",
+      "bullet1": " - BadmintonGear và nội dung của ứng dụng (logo, thương hiệu, văn bản, hình ảnh, phần mềm...) được bảo vệ bởi quyền sở hữu trí tuệ.",
+      "bullet2": " - Bạn không được sử dụng, sao chép, chỉnh sửa, phân phối hoặc hiển thị bất kỳ phần nào của BadmintonGear khi chưa có sự đồng ý bằng văn bản."
+    },
+    "section8": {
+      "title": "8. Hành vi người dùng:",
+      "bullet1": " - Bạn đồng ý sử dụng BadmintonGear tuân thủ pháp luật và quy định hiện hành.",
+      "bullet2": " - Bạn không được thực hiện hành vi gây gián đoạn hoạt động của ứng dụng hoặc xâm phạm quyền lợi của người khác.",
+      "bullet3": " - Mọi hành vi truy cập trái phép hoặc cố gắng truy cập khu vực hạn chế/tài khoản người dùng đều bị nghiêm cấm."
+    },
+    "section9": {
+      "title": "9. Giới hạn trách nhiệm:",
+      "bullet1": " - BadmintonGear và các bên liên quan không chịu trách nhiệm cho thiệt hại trực tiếp/gián tiếp/phát sinh/hệ quả do việc sử dụng hoặc không thể sử dụng ứng dụng hay sản phẩm mua qua ứng dụng.",
+      "bullet2": " - Chúng tôi không đảm bảo tính chính xác, đầy đủ hoặc độ tin cậy tuyệt đối của thông tin trên BadmintonGear."
+    },
+    "section10": {
+      "title": "10. Luật áp dụng:",
+      "bullet1": " - Các Điều khoản này được điều chỉnh và giải thích theo pháp luật của [Khu vực tài phán].",
+      "bullet2": " - Mọi tranh chấp liên quan sẽ được giải quyết tại tòa án có thẩm quyền của [Khu vực tài phán]."
+    },
+
+    "footer": "Nếu bạn có bất kỳ câu hỏi hoặc thắc mắc nào về các Điều khoản và Điều kiện này, vui lòng liên hệ bộ phận hỗ trợ khách hàng. Khi sử dụng BadmintonGear, bạn xác nhận rằng bạn đã đọc, hiểu và đồng ý với các Điều khoản và Điều kiện này."
   }
 }
