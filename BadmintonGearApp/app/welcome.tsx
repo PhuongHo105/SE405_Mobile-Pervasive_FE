@@ -5,11 +5,12 @@ import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { useEffect, useRef, useState, type ReactElement } from 'react';
 import { ActivityIndicator, Animated, ImageSourcePropType, StyleSheet, View } from 'react-native';
-
+import { useTranslation } from 'react-i18next';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 
 export default function WelcomeScreen(): ReactElement {
+    const { t } = useTranslation();
     const router = useRouter();
     useEffect(() => {
         console.log('WelcomeScreen mounted');
@@ -85,7 +86,7 @@ export default function WelcomeScreen(): ReactElement {
             <ThemedView>
                 <Image source={logoSrc} style={{ width: 200, height: 200 }} />
             </ThemedView>
-            <ThemedText type="title">BadmintonGear</ThemedText>
+            <ThemedText type="title">{t('common.appName')}</ThemedText>
             <View style={styles.progressContainer} pointerEvents="none">
                 <ThemedView style={styles.progressBackground}>
                     <Animated.View style={[styles.progressFill, { width: widthInterpolation, backgroundColor: tint }]} />

@@ -402,5 +402,38 @@
     },
 
     "footer": "If you have any questions or concerns regarding these Terms and Conditions, please contact our customer support. By using BadmintonGear, you acknowledge that you have read, understood, and agreed to these Terms and Conditions."
+  },
+  "checkout": {
+    "title": "Checkout",
+    "fields": {
+      "fullName": "Full Name",
+      "phone": "Phone Number",
+      "country": "Country",
+      "province": "Province / City",
+      "district": "District",
+      "detailedAddress": "Detailed Address"
+    },
+    "placeholders": {
+      "fullName": "Enter your full name",
+      "phone": "Enter your phone number",
+      "country": "Select country",
+      "selectCountryFirst": "Select a country first",
+      "selectProvince": "Select province / city",
+      "selectProvinceFirst": "Select province first",
+      "selectDistrict": "Select district",
+      "loadingProvinces": "Loading provinces...",
+      "loadingDistricts": "Loading districts...",
+      "detailedAddress": "Street, building, house number"
+    },
+    "dropdown": {
+      "selectOption": "Select an option",
+      "noOptions": "No options available",
+      "noCountries": "No countries available",
+      "noProvinces": "No provinces available",
+      "noDistricts": "No districts available"
+    },
+    "errors": {
+      "loadAddress": "Unable to load addresses. Check your connection and try again."
+    }
   }
 }

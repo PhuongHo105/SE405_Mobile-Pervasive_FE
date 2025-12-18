@@ -39,7 +39,7 @@ const GITHUB_FALLBACK_URL =
     'https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json';
 
 const ShippingAddressScreen: FC = () => {
-    const { t } = useTranslation(['common', 'shippingAddress']);
+    const { t } = useTranslation();
     const schemeRaw = useColorScheme();
     const scheme: keyof typeof Colors = (schemeRaw ?? 'light') as keyof typeof Colors;
     const [shippingAddress, setShippingAddress] = React.useState({

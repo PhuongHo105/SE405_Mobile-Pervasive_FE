@@ -409,5 +409,38 @@
     },
 
     "footer": "Nếu bạn có bất kỳ câu hỏi hoặc thắc mắc nào về các Điều khoản và Điều kiện này, vui lòng liên hệ bộ phận hỗ trợ khách hàng. Khi sử dụng BadmintonGear, bạn xác nhận rằng bạn đã đọc, hiểu và đồng ý với các Điều khoản và Điều kiện này."
+  },
+  "checkout": {
+    "title": "Thanh toán",
+    "fields": {
+      "fullName": "Họ và tên",
+      "phone": "Số điện thoại",
+      "country": "Quốc gia",
+      "province": "Tỉnh/Thành phố",
+      "district": "Quận/Huyện",
+      "detailedAddress": "Địa chỉ chi tiết"
+    },
+    "placeholders": {
+      "fullName": "Nhập họ và tên",
+      "phone": "Nhập số điện thoại",
+      "country": "Chọn quốc gia",
+      "selectCountryFirst": "Chọn quốc gia trước",
+      "selectProvince": "Chọn tỉnh/thành phố",
+      "selectProvinceFirst": "Chọn tỉnh/thành phố trước",
+      "selectDistrict": "Chọn quận/huyện",
+      "loadingProvinces": "Đang tải tỉnh/thành phố...",
+      "loadingDistricts": "Đang tải quận/huyện...",
+      "detailedAddress": "Đường, toà nhà, số nhà"
+    },
+    "dropdown": {
+      "selectOption": "Chọn một mục",
+      "noOptions": "Không có lựa chọn",
+      "noCountries": "Không có quốc gia",
+      "noProvinces": "Không có tỉnh/thành phố",
+      "noDistricts": "Không có quận/huyện"
+    },
+    "errors": {
+      "loadAddress": "Không thể tải địa chỉ. Kiểm tra kết nối và thử lại."
+    }
   }
 }
