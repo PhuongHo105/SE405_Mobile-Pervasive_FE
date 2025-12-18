@@ -449,5 +449,30 @@
     "title": "Đơn hàng của bạn đã được đặt thành công",
     "subtitle": "Cảm ơn bạn đã lựa chọn chúng tôi! Hãy tiếp tục mua sắm và khám phá nhiều sản phẩm đa dạng. Chúc bạn mua sắm vui vẻ!",
     "continueShopping": "Tiếp tục mua sắm"
+  },
+  "checkoutPayment": {
+    "title": "Thanh toán"
+  },
+  "checkoutReview": {
+    "title": "Thanh toán",
+     "item": "Sản phẩm",
+    "shippingAddressTitle": "Địa chỉ giao hàng",
+    "orderInformationTitle": "Thông tin đơn hàng",
+    "fields": {
+      "fullName": "Họ và tên",
+      "phoneNumber": "Số điện thoại",
+      "country": "Quốc gia",
+      "city": "Tỉnh/Thành phố",
+      "district": "Quận/Huyện",
+      "streetAddress": "Địa chỉ"
+    },
+    "summary": {
+      "subtotal": "Tạm tính",
+      "shippingCost": "Phí vận chuyển",
+      "discount": "Giảm giá",
+      "discountValue": "{{value}} %",
+      "total": "Tổng cộng"
+    },
+    "placeOrder": "Đặt hàng"
   }
 }

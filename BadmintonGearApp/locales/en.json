@@ -442,5 +442,30 @@
     "title": "Your order has been placed successfully",
     "subtitle": "Thank you for choosing us! Feel free to continue shopping and explore our wide range of products. Happy Shopping!",
     "continueShopping": "Continue Shopping"
+  },
+  "checkoutPayment": {
+    "title": "Checkout"
+  },
+  "checkoutReview": {
+    "title": "Checkout",
+    "item": "Item",
+    "shippingAddressTitle": "Shipping Address",
+    "orderInformationTitle": "Order Information",
+    "fields": {
+      "fullName": "Full Name",
+      "phoneNumber": "Phone Number",
+      "country": "Country",
+      "city": "City",
+      "district": "District",
+      "streetAddress": "Street Address"
+    },
+    "summary": {
+      "subtotal": "Subtotal",
+      "shippingCost": "Shipping Cost",
+      "discount": "Discount",
+      "discountValue": "{{value}} %",
+      "total": "Total"
+    },
+    "placeOrder": "Place Order"
   }
 }
