@@ -9,8 +9,11 @@ import { useRouter } from 'expo-router';
 import React from 'react';
 import { ColorSchemeName, Image, ImageSourcePropType, Pressable, StyleSheet, TextInput } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
+import { useTranslation } from 'react-i18next';
+
 
 const SignUpScreen: React.FC = () => {
+    const { t } = useTranslation();
     const router = useRouter();
     const schemeRaw = useColorScheme() as ColorSchemeName | undefined | null;
     const scheme: keyof typeof Colors = (schemeRaw ?? 'light') as keyof typeof Colors;
@@ -33,28 +36,28 @@ const SignUpScreen: React.FC = () => {
             <ThemedView style={styles.logoContainer}>
                 <Image source={logoSource} style={styles.logo} />
                 <ThemedText type="title" style={[styles.title, { color: Colors[scheme].text }]}>
-                    BadmintonGear
+                    {t('common.appName')}
                 </ThemedText>
             </ThemedView>
 
             <ThemedView style={styles.content}>
                 <ThemedText type="title" style={styles.heading}>
-                    Sign Up
+                    {t('signup.title')}
                 </ThemedText>
                 <ThemedView style={styles.signupRow}>
                     <ThemedText type="default" style={styles.signupPrompt}>
-                        Already have an account?
+                        {t('signup.alreadyHaveAccount')}
                     </ThemedText>
                     <Pressable onPress={() => router.push('/login')}>
                         <ThemedText type="link" style={[styles.signupLink, { color: Colors[scheme].tint }]}>
-                            Login
+                            {t('common.login')}
                         </ThemedText>
                     </Pressable>
                 </ThemedView>
 
                 <ThemedView>
                     <ThemedView style={styles.fieldGroup}>
-                        <ThemedText>Fullname *</ThemedText>
+                        <ThemedText>{t('common.fullName')}  *</ThemedText>
                         <TextInput
                             style={[
                                 styles.input,
@@ -65,7 +68,7 @@ const SignUpScreen: React.FC = () => {
                             ]}
                             value={fullname}
                             onChangeText={setFullname}
-                            placeholder="Enter your fullname"
+                            placeholder={t('signup.fullNamePlaceholder')}
                             placeholderTextColor={Colors[scheme].secondaryText}
                             keyboardType="default"
                             autoCapitalize="words"
@@ -75,7 +78,7 @@ const SignUpScreen: React.FC = () => {
                     </ThemedView>
 
                     <ThemedView style={styles.fieldGroup}>
-                        <ThemedText>Email *</ThemedText>
+                        <ThemedText>{t('common.email')} *</ThemedText>
                         <TextInput
                             style={[
                                 styles.input,
@@ -86,7 +89,7 @@ const SignUpScreen: React.FC = () => {
                             ]}
                             value={email}
                             onChangeText={setEmail}
-                            placeholder="Enter your email"
+                            placeholder={t('signup.emailPlaceholder')}
                             placeholderTextColor={Colors[scheme].secondaryText}
                             keyboardType="email-address"
                             autoCapitalize="none"
@@ -96,9 +99,9 @@ const SignUpScreen: React.FC = () => {
                     </ThemedView>
 
                     <ThemedView style={styles.fieldGroup}>
-                        <ThemedText>Password *</ThemedText>
+                        <ThemedText>{t('common.password')} *</ThemedText>
                         <PasswordInput
-                            placeholder="Enter your password"
+                            placeholder={t('signup.passwordPlaceholder')}
                             placeholderTextColor={Colors[scheme].secondaryText}
                             value={password}
                             onChangeText={setPassword}
@@ -114,9 +117,9 @@ const SignUpScreen: React.FC = () => {
                     </ThemedView>
 
                     <ThemedView style={{ marginTop: 32 }}>
-                        <FullButton text='Sign Up' onPress={() => { handleSignUp(fullname, email, password) }} />
+                        <FullButton text={t('common.signup')} onPress={() => { handleSignUp(fullname, email, password) }} />
                         <BorderButton
-                            text='Sign Up with Google'
+                            text={t('common.signupWithGoogle')}
                             onPress={() => { }}
                             style={{ marginTop: 12 }}
                             icon={
