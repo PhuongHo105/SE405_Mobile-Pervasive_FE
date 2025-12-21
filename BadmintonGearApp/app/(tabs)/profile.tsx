@@ -1,3 +1,4 @@
+import { useThemePreference } from '@/app/providers/ThemePreferenceProvider';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import CustomSwitch from '@/components/ui/CustomSwitch';
@@ -11,6 +12,7 @@ import { useRouter } from 'expo-router';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import {
+    Alert,
     ColorSchemeName,
     Image,
     ScrollView,
@@ -19,7 +21,6 @@ import {
     TouchableOpacity,
     View
 } from 'react-native';
-import { useThemePreference } from '../providers/ThemePreferenceProvider';
 
 const ProfileScreen: React.FC = () => {
     const { t } = useTranslation();
@@ -44,9 +45,20 @@ const ProfileScreen: React.FC = () => {
     );
 
     const handleLogout = async () => {
-        await AsyncStorage.removeItem('loginToken');
-        await AsyncStorage.removeItem('password');
-        router.replace('/login' as any);
+        Alert.alert(
+            t('profile.logout'),
+            t('profile.logoutConfirmation'),
+            [
+                { text: t('common.cancel'), onPress: () => { }, style: 'cancel' },
+                {
+                    text: t('profile.logout'), onPress: async () => {
+                        await AsyncStorage.removeItem('loginToken');
+                        await AsyncStorage.removeItem('password');
+                        router.replace('/login' as any);
+                    }, style: 'destructive'
+                },
+            ]
+        );
     }
 
     return (
@@ -121,7 +133,6 @@ const ProfileScreen: React.FC = () => {
                         onValueChange={setTheme}
                     />
                 </ThemedView>
-
                 <ThemedView style={styles.section}>
                     <ThemedText style={[styles.sectionTitle, { color: textColor }]}>{t('profile.language')}</ThemedText>
                     <LanguageSelector />

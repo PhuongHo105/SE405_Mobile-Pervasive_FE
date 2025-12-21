@@ -5,6 +5,7 @@ import GoBackButton from '@/components/ui/GoBackButton';
 import PasswordInput from '@/components/ui/PasswordInput';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -12,8 +13,8 @@ import { StyleSheet, View } from 'react-native';
 
 
 const ChangePassword01Screen: FC = () => {
-    const router = useRouter();
     const { t } = useTranslation();
+    const router = useRouter();
     const schemeRaw = useColorScheme();
     const scheme: keyof typeof Colors = (schemeRaw ?? 'light') as keyof typeof Colors;
     const textColor: string = Colors[scheme].text;
@@ -21,8 +22,9 @@ const ChangePassword01Screen: FC = () => {
     const secondaryText: string = Colors[scheme].secondaryText;
     const [error, setError] = React.useState<string | null>(null);
     const [currentPassword, setCurrentPassword] = React.useState('');
-    const handleCheckCurrentPassword = () => {
-        if (currentPassword != '123')
+    const handleCheckCurrentPassword = async () => {
+        const password = await AsyncStorage.getItem('password');
+        if (currentPassword !== password)
             setError(t('changePassword.invalidCurrentPassword'));
         else {
             setError(null);
@@ -61,7 +63,7 @@ const ChangePassword01Screen: FC = () => {
                 ) : null}
                 <ThemedView style={{ marginTop: 30 }}>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <FullButton onPress={handleCheckCurrentPassword} style={{ flex: 1 }} text={t('common.continue')} />
+                        <FullButton onPress={handleCheckCurrentPassword} text={t('common.continue')} style={{ flex: 1 }} />
                     </View>
                 </ThemedView>
             </ThemedView>

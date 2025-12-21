@@ -4,22 +4,41 @@ import FullButton from '@/components/ui/FullButton';
 import GoBackButton from '@/components/ui/GoBackButton';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { forgotPassword } from '@/services/userService';
 import { useRouter } from 'expo-router';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import {
+    Alert,
     ColorSchemeName,
     StyleSheet,
     TextInput
 } from 'react-native';
 
 const ForgotPasswordScreen: React.FC = () => {
-    const router = useRouter();
     const { t } = useTranslation();
+    const router = useRouter();
     const schemeRaw = useColorScheme() as ColorSchemeName | undefined | null;
     const scheme: keyof typeof Colors = (schemeRaw ?? 'light') as keyof typeof Colors;
     const [email, setEmail] = React.useState('');
     const [isEmailFocused, setIsEmailFocused] = React.useState(false);
+
+    const handleSendPass = async () => {
+        try {
+            const response = await forgotPassword(email);
+            if (response === "Password reset link sent to your email") {
+                Alert.alert(t('forgotPassword.emailSentSuccess'));
+                router.push('/login');
+            }
+            else {
+                Alert.alert(t('forgotPassword.errorSendingEmail'));
+            }
+        }
+        catch (error) {
+            Alert.alert(t('forgotPassword.errorSendingEmail'));
+            console.error('Error in forgot password:', error);
+        }
+    }
 
     return (
         <ThemedView style={styles.container}>
@@ -41,6 +60,7 @@ const ForgotPasswordScreen: React.FC = () => {
                 <ThemedText style={[styles.subtitle, { color: Colors[scheme].secondaryText }]}>
                     {t('forgotPassword.confirmDescription')}
                 </ThemedText>
+
                 <ThemedView style={styles.fieldGroup}>
                     <ThemedText>Email *</ThemedText>
                     <TextInput
@@ -63,7 +83,7 @@ const ForgotPasswordScreen: React.FC = () => {
                 </ThemedView>
 
                 <ThemedView style={styles.buttonsContainer}>
-                    <FullButton text={t('forgotPassword.send')} onPress={() => { router.push('/forgotPassword/emailVerification') }} />
+                    <FullButton text={t('forgotPassword.send')} onPress={handleSendPass} />
                 </ThemedView>
             </ThemedView>
         </ThemedView>
