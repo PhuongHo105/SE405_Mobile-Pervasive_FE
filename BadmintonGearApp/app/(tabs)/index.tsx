@@ -1,3 +1,5 @@
+import React, { useEffect } from 'react';
+import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -11,15 +13,16 @@ import Header from '@/components/ui/Header';
 import ProductCard from '@/components/ui/ProductCard';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { getCurrentLanguage } from '@/i18n';
+import { getAllProducts, getTopSellingProducts } from '@/services/productService';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
 export default function HomeScreen() {
-  const router = useRouter();
   const { t } = useTranslation();
+  const language = getCurrentLanguage();
+  const router = useRouter();
   const schemeRaw = useColorScheme();
   const scheme: keyof typeof Colors = (schemeRaw ?? 'light') as keyof typeof Colors;
   const tint: string = Colors[scheme].tint;
@@ -32,10 +35,18 @@ export default function HomeScreen() {
   const pushProductList = (params?: { category?: number }) => {
     const routeParams: Record<string, string> = {};
     if (params?.category !== undefined) {
-      routeParams.category = String(params.category);
+      routeParams.categoriesid = String(params.category);
     }
     router.push({ pathname: '/productList', params: routeParams });
   };
+  const categories = [{ id: '1', name: t('categories.rackets'), image: <RacketIcon width={48} height={48} />, filter: 1 },
+  { id: '2', name: t('categories.shoes'), image: <ShoesIcon width={48} height={48} />, filter: 3 },
+  { id: '3', name: t('categories.clothes'), image: <ClothesIcon width={48} height={48} />, filter: 4 },
+  { id: '4', name: t('categories.bags'), image: <BagsIcon width={48} height={48} />, filter: 5 },
+  { id: '5', name: t('categories.shuttlecocks'), image: <ShuttlecockIcon width={48} height={48} />, filter: 2 },
+  { id: '6', name: t('categories.other'), image: <OtherIcon width={48} height={48} /> }];
+  const [products, setProducts] = React.useState<any[]>([]);
+  const [bestSellingProducts, setBestSellingProducts] = React.useState<any[]>([]);
 
   const handleSeeAllProductsPress = () => {
     pushProductList();
@@ -44,21 +55,23 @@ export default function HomeScreen() {
   const handleCategoryItemPress = (category?: number) => {
     pushProductList(category ? { category } : undefined);
   };
-  const categories = [
-    { id: '1', name: t('categories.rackets'), image: <RacketIcon width={48} height={48} />, filter: 1 },
-    { id: '2', name: t('categories.shuttlecocks'), image: <ShuttlecockIcon width={48} height={48} />, filter: 2 },
-    { id: '3', name: t('categories.shoes'), image: <ShoesIcon width={48} height={48} />, filter: 3 },
-    { id: '4', name: t('categories.clothes'), image: <ClothesIcon width={48} height={48} />, filter: 4 },
-    { id: '5', name: t('categories.bags'), image: <BagsIcon width={48} height={48} />, filter: 5 },
-    { id: '6', name: t('categories.other'), image: <OtherIcon width={48} height={48} /> },
-  ];
-  const products = [
-    { id: '1', name: 'Product 1', price: 100000, discount: 20, image: require('../../assets/images/product1.png') },
-    { id: '2', name: 'Product 2', price: 150000, discount: 10, image: require('../../assets/images/product1.png') },
-    { id: '3', name: 'Product 3', price: 200000, image: require('../../assets/images/product1.png') },
-    { id: '4', name: 'Product 4', price: 250000, discount: 15, image: require('../../assets/images/product1.png') },
-    { id: '5', name: 'Product 5', price: 300000, image: require('../../assets/images/product1.png') },
-  ];
+
+  useEffect(() => {
+    // Fetch products here
+    const fetchData = async () => {
+      try {
+        const productsResponse = await getAllProducts(language);
+        const bestSellingResponse = await getTopSellingProducts(new Date().getMonth() + 1, new Date().getFullYear(), language);
+        setProducts(productsResponse);
+        setBestSellingProducts(bestSellingResponse);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, [language]);
+
   return (
     <View>
       <ThemedView style={styles.container}>
@@ -70,7 +83,7 @@ export default function HomeScreen() {
           <ThemedView>
             <ThemedView style={styles.headerSection}>
               <ThemedText type="defaultSemiBold" style={{ fontSize: 20 }}>{t('home.category')}</ThemedText>
-              <Pressable onPress={() => { handleSeeAllCategoriesPress() }}>
+              <Pressable onPress={handleSeeAllCategoriesPress}>
                 <ThemedText type="link" style={{ color: tint }}>{t('common.seeAll')}</ThemedText>
               </Pressable>
             </ThemedView>
@@ -91,21 +104,23 @@ export default function HomeScreen() {
               ))}
             </ScrollView>
           </ThemedView>
-          <ThemedView>
-            <ThemedView style={styles.headerSection}>
-              <ThemedText type="defaultSemiBold" style={{ fontSize: 20 }}>{t('home.bestSelling')}</ThemedText>
-              <Pressable onPress={() => { handleSeeAllProductsPress() }}>
-                <ThemedText type="link" style={{ color: tint }}>{t('common.seeAll')}</ThemedText>
-              </Pressable>
+          {bestSellingProducts.length > 0 && (
+            <ThemedView>
+              <ThemedView style={styles.headerSection}>
+                <ThemedText type="defaultSemiBold" style={{ fontSize: 20 }}>{t('home.bestSelling')}</ThemedText>
+                <Pressable onPress={handleSeeAllProductsPress}>
+                  <ThemedText type="link" style={{ color: tint }}>{t('common.seeAll')}</ThemedText>
+                </Pressable>
+              </ThemedView>
+              <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginBottom: 20 }}>
+                {bestSellingProducts.map((product) =>
+                (<ThemedView key={product.id} style={{ marginRight: 12 }}>
+                  <ProductCard key={product.id} product={product} />
+                </ThemedView>)
+                )}
+              </ScrollView>
             </ThemedView>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginBottom: 20 }}>
-              {products.map((product) =>
-              (<ThemedView key={product.id} style={{ marginRight: 12 }}>
-                <ProductCard key={product.id} product={product} />
-              </ThemedView>)
-              )}
-            </ScrollView>
-          </ThemedView>
+          )}
           <ThemedView>
             <ThemedView style={styles.headerSection}>
               <ThemedText type="defaultSemiBold" style={{ fontSize: 20 }}>{t('home.latestProducts')}</ThemedText>
@@ -122,6 +137,7 @@ export default function HomeScreen() {
         </ScrollView>
       </ThemedView>
     </View>
+
   );
 }
 
@@ -151,14 +167,13 @@ const styles = StyleSheet.create({
   },
   categoryItem: {
     alignItems: 'center',
+    width: 130,
     marginRight: 16,
     paddingTop: 12,
     paddingBottom: 12,
-    width: 130,
     paddingLeft: 20,
     paddingRight: 20,
     borderRadius: 12,
-    borderColor: '#F4F5FD',
     borderWidth: 1,
   },
   categoryIcon: {
@@ -168,4 +183,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+
 });

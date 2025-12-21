@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import { ImageSourcePropType } from "react-native";
 
 export type Product = {
@@ -6,12 +7,12 @@ export type Product = {
   price: number;
   discount?: number;
   image: ImageSourcePropType;
-  category?: number;
+  categoriesid?: number;
   brand?: string;
 };
 
 export type ProductFilters = {
-  category?: number;
+  categoriesid?: number;
   searchQuery?: string;
   brand?: string;
   minPrice?: number;
@@ -25,7 +26,7 @@ export const PRODUCT_DATA: Product[] = [
     price: 3200000,
     discount: 20,
     image: require("../assets/images/product1.png"),
-    category: 1,
+    categoriesid: 1,
     brand: "Yonex",
   },
   {
@@ -34,7 +35,7 @@ export const PRODUCT_DATA: Product[] = [
     price: 2900000,
     discount: 10,
     image: require("../assets/images/product1.png"),
-    category: 1,
+    categoriesid: 1,
     brand: "Lining",
   },
   {
@@ -42,7 +43,7 @@ export const PRODUCT_DATA: Product[] = [
     name: "Giày Victor P9200",
     price: 2100000,
     image: require("../assets/images/product1.png"),
-    category: 3,
+    categoriesid: 3,
     brand: "Victor",
   },
   {
@@ -51,7 +52,7 @@ export const PRODUCT_DATA: Product[] = [
     price: 850000,
     discount: 15,
     image: require("../assets/images/product1.png"),
-    category: 4,
+    categoriesid: 4,
     brand: "Yonex",
   },
   {
@@ -59,7 +60,7 @@ export const PRODUCT_DATA: Product[] = [
     name: "Balo Adidas Barricade",
     price: 950000,
     image: require("../assets/images/product1.png"),
-    category: 5,
+    categoriesid: 5,
     brand: "Adidas",
   },
 ];
@@ -75,24 +76,28 @@ export const PRICE_RANGE = (() => {
 })();
 
 export const CATEGORY_LABEL_MAP: Record<number, string> = {
-  1: "Vợt",
-  2: "Cầu lông",
-  3: "Giày",
-  4: "Trang phục",
-  5: "Balo",
+  1: t('categories.rackets'),
+  2: t('categories.shoes'),
+  3: t('categories.clothes'),
+  4: t('categories.bags'),
+  5: t('categories.shuttlecocks'),
+  6: t('categories.other'),
 };
 
-export const CATEGORY_OPTIONS: { label: string; value?: number }[] = [
-  { label: "Tất cả", value: undefined },
-  { label: CATEGORY_LABEL_MAP[1], value: 1 },
-  { label: CATEGORY_LABEL_MAP[2], value: 2 },
-  { label: CATEGORY_LABEL_MAP[3], value: 3 },
-  { label: CATEGORY_LABEL_MAP[4], value: 4 },
-  { label: CATEGORY_LABEL_MAP[5], value: 5 },
-];
+export const getCategoryOptions = (): { label: string; value?: number }[] => {
+  return [
+    { label: t('products.all'), value: undefined },
+    { label: CATEGORY_LABEL_MAP[1], value: 1 },
+    { label: CATEGORY_LABEL_MAP[2], value: 2 },
+    { label: CATEGORY_LABEL_MAP[3], value: 3 },
+    { label: CATEGORY_LABEL_MAP[4], value: 4 },
+    { label: CATEGORY_LABEL_MAP[5], value: 5 },
+    { label: CATEGORY_LABEL_MAP[6], value: 6 },
+  ];
+};
 
 export const BRAND_OPTIONS: { label: string; value?: string }[] = [
-  { label: "Tất cả", value: undefined },
+  { label: "All", value: undefined },
   { label: "Yonex", value: "Yonex" },
   { label: "Lining", value: "Lining" },
   { label: "Victor", value: "Victor" },
