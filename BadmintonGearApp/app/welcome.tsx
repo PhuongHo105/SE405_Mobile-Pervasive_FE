@@ -1,20 +1,17 @@
+import { ThemedText } from '@/components/themed-text';
+import { ThemedView } from '@/components/themed-view';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { useEffect, useRef, useState, type ReactElement } from 'react';
-import { ActivityIndicator, Animated, ImageSourcePropType, StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
+import { ActivityIndicator, Animated, ImageSourcePropType, StyleSheet, View } from 'react-native';
 
 export default function WelcomeScreen(): ReactElement {
     const { t } = useTranslation();
     const router = useRouter();
-    useEffect(() => {
-        console.log('WelcomeScreen mounted');
-    }, []);
     const [progress, setProgress] = useState<number>(0);
     const [done, setDone] = useState<boolean>(false);
     const [checking, setChecking] = useState<boolean>(true);
