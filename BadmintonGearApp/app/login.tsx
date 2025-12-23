@@ -1,3 +1,4 @@
+import { useAuth } from '@/app/providers/AuthProvider';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import BorderButton from '@/components/ui/BorderButton';
@@ -16,6 +17,7 @@ import Svg, { Path } from 'react-native-svg';
 const LoginScreen: React.FC = () => {
     const { t } = useTranslation();
     const router = useRouter();
+    const { signIn } = useAuth();
     const schemeRaw = useColorScheme() as ColorSchemeName | undefined | null;
     const scheme: keyof typeof Colors = (schemeRaw ?? 'light') as keyof typeof Colors;
     const logoSource: ImageSourcePropType =
@@ -28,7 +30,6 @@ const LoginScreen: React.FC = () => {
     const [isPasswordFocused, setIsPasswordFocused] = React.useState(false);
     const [error, setError] = React.useState<string | null>(null);
     const [isLoading, setIsLoading] = React.useState<boolean>(false);
-
     const handleLogin = async (email: string, password: string) => {
         setError(null);
         if (!email.trim() || !password.trim()) {
@@ -41,9 +42,9 @@ const LoginScreen: React.FC = () => {
             const token = (response as any)?.token;
             const ok = token || (response as any)?.message === 'Login successfully';
             if (ok && token) {
-                await AsyncStorage.setItem('loginToken', token);
+                await signIn(token);
                 await AsyncStorage.setItem('password', password);
-                router.push('/');
+                // AuthProvider will handle navigation automatically
             } else {
                 setError(t('login.invalidCredentials'));
             }
@@ -80,7 +81,7 @@ const LoginScreen: React.FC = () => {
 
                 <ThemedView>
                     <ThemedView style={styles.fieldGroup}>
-                        <ThemedText>{t('common.email')}</ThemedText>
+                        <ThemedText>{t('common.email')} *</ThemedText>
                         <TextInput
                             style={[
                                 styles.input,
@@ -122,6 +123,7 @@ const LoginScreen: React.FC = () => {
                             {error}
                         </ThemedText>
                     )}
+
                     <ThemedView style={styles.forgotPasswordRow}>
                         <Pressable onPress={() => router.push('/forgotPassword')}>
                             <ThemedText type="link" style={[styles.forgotPasswordLink, { color: Colors[scheme].tint }]}>
@@ -149,7 +151,7 @@ const LoginScreen: React.FC = () => {
             </ThemedView>
             <ThemedView style={styles.lastContainer}>
                 <ThemedText type="default" style={{ color: Colors[scheme].secondaryText, textAlign: 'center' }}>
-                    {t('login.termsText')} <ThemedText type="link" onPress={() => { router.push('/termcondition') }}>{t('login.termsOfService')}</ThemedText> {t('login.and')} <ThemedText type="link" onPress={() => { router.push('/privacy') }}>{t('login.privacyPolicy')}</ThemedText>.
+                    {t('login.termsText')} <ThemedText type="link" onPress={() => { router.push('/termcondition') }}>{t('login.termsOfService')}</ThemedText> and <ThemedText type="link" onPress={() => { router.push('/privacy') }}>{t('login.privacyPolicy')}</ThemedText>.
                 </ThemedText>
             </ThemedView>
         </ThemedView>
@@ -224,3 +226,4 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     }
 });
+

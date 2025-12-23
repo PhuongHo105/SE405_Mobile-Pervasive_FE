@@ -1,70 +1,112 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-import { useTranslation } from 'react-i18next';
+import '@/i18n';
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { Stack, useRouter, useSegments } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import { useEffect, useRef, useState } from 'react';
+import { View } from 'react-native';
+import 'react-native-reanimated';
 
-export default function TabLayout() {
+import { AuthProvider } from '@/app/providers/AuthProvider';
+import { ThemePreferenceProvider } from '@/app/providers/ThemePreferenceProvider';
+import { ToastProvider } from '@/app/providers/ToastProvider';
+import { useColorScheme } from '@/hooks/use-color-scheme';
+import WelcomeScreen from '../welcome';
+
+export const unstable_settings = {
+  anchor: 'welcome',
+};
+
+export default function RootLayout() {
   const colorScheme = useColorScheme();
-  const {t} = useTranslation();
+  const router = useRouter();
+  const segments = useSegments();
+  const [stackReady, setStackReady] = useState(false);
+  const didForceRef = useRef(false);
+
+  useEffect(() => {
+    // Ensure we only force navigation once. If we're already on the welcome
+    // route (segments start with 'welcome'), skip the replace and render
+    // the stack immediately. This avoids repeated navigation loops.
+    if (didForceRef.current) {
+      setStackReady(true);
+      return;
+    }
+
+    const isOnWelcome = segments.length > 0 && segments[0] === 'welcome';
+    if (isOnWelcome) {
+      didForceRef.current = true;
+      setStackReady(true);
+      return;
+    }
+
+    try {
+      const t = setTimeout(() => {
+        try {
+          router.replace('/welcome' as any);
+        } catch {
+          // ignore
+        } finally {
+          didForceRef.current = true;
+          setStackReady(true);
+        }
+      }, 80);
+      return () => clearTimeout(t);
+    } catch (e) {
+      console.warn('Router replace to /welcome failed', e);
+      didForceRef.current = true;
+      setStackReady(true);
+    }
+  }, [segments, router]);
+
 
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        tabBarInactiveTintColor: Colors[colorScheme ?? 'light'].tabIconDefault,
-        tabBarStyle: { backgroundColor: Colors[colorScheme ?? 'light'].background },
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: t('layout.home'),
-          tabBarIcon: ({ color }: { color: string }) => (
-            <IconSymbol size={28} name="house.fill" color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="categories"
-        options={{
-          title: t('layout.categories'),
-          tabBarIcon: ({ color }: { color: string }) => (
-            <IconSymbol size={28} name="category.fill" color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="cart"
-        options={{
-          title: t('layout.cart'),
-          tabBarIcon: ({ color }: { color: string }) => (
-            <IconSymbol size={28} name="shopping-cart.fill" color={color} />
-          ),
-        }}
-      />
-      {/* <Tabs.Screen
-        name="wishlist"
-        options={{
-          title: t('layout.wishlist'),
-          tabBarIcon: ({ color }: { color: string }) => (
-            <IconSymbol size={28} name="heart.fill" color={color} />
-          ),
-        }}
-      /> */}
-      <Tabs.Screen
-        name="profile"
-        options={{
-          title: t('layout.profile'),
-          tabBarIcon: ({ color }: { color: string }) => (
-            <IconSymbol size={28} name="account-box" color={color} />
-          ),
-        }}
-      />
-    </Tabs>
+    <ThemePreferenceProvider>
+      <ToastProvider>
+        <AuthProvider>
+          <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+            <View style={{ flex: 1, backgroundColor: Colors[colorScheme ?? 'light'].background }}>
+              {!stackReady ? (
+                <WelcomeScreen />
+              ) : (
+                <Stack>
+                  <Stack.Screen name="welcome" options={{ headerShown: false, gestureEnabled: false }} />
+                  <Stack.Screen name="(tabs)" options={{ headerShown: false, gestureEnabled: false }} />
+                  <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
+                  <Stack.Screen name="changepassword/01" options={{ headerShown: false }} />
+                  <Stack.Screen name="changepassword/02" options={{ headerShown: false }} />
+                  <Stack.Screen name="faqs" options={{ headerShown: false }} />
+                  <Stack.Screen name="chat" options={{ headerShown: false }} />
+                  <Stack.Screen name="termcondition" options={{ headerShown: false }} />
+                  <Stack.Screen name="privacy" options={{ headerShown: false }} />
+                  <Stack.Screen name="productList" options={{ headerShown: false }} />
+                  <Stack.Screen name="search" options={{ headerShown: false }} />
+                  <Stack.Screen name="product/[id]" options={{ headerShown: false }} />
+                  <Stack.Screen name="login" options={{ headerShown: false, gestureEnabled: false }} />
+                  <Stack.Screen name="signup" options={{ headerShown: false }} />
+                  <Stack.Screen name="forgotPassword/index" options={{ headerShown: false }} />
+                  <Stack.Screen name="forgotPassword/emailVerification" options={{ headerShown: false }} />
+                  <Stack.Screen name="forgotPassword/setNewPassword" options={{ headerShown: false }} />
+                  <Stack.Screen name="forgotPassword/success" options={{ headerShown: false }} />
+                  <Stack.Screen name="onboarding/index" options={{ headerShown: false, gestureEnabled: false }} />
+                  <Stack.Screen name="onboarding/02" options={{ headerShown: false, gestureEnabled: false }} />
+                  <Stack.Screen name="onboarding/03" options={{ headerShown: false, gestureEnabled: false }} />
+                  <Stack.Screen name="checkout/index" options={{ headerShown: false }} />
+                  <Stack.Screen name="checkout/payment" options={{ headerShown: false }} />
+                  <Stack.Screen name="checkout/review" options={{ headerShown: false }} />
+                  <Stack.Screen name="checkout/items" options={{ headerShown: false }} />
+                  <Stack.Screen name="checkout/result" options={{ headerShown: false }} />
+                  <Stack.Screen name="shippingAddress" options={{ headerShown: false }} />
+                  <Stack.Screen name="orderList" options={{ headerShown: false }} />
+                  <Stack.Screen name="order/[id]" options={{ headerShown: false }} />
+                  <Stack.Screen name="feedback" options={{ headerShown: false }} />
+                </Stack>
+              )}
+              <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
+            </View>
+          </ThemeProvider>
+        </AuthProvider>
+      </ToastProvider>
+    </ThemePreferenceProvider>
   );
 }
