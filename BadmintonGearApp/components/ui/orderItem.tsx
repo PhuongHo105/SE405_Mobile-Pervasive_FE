@@ -103,7 +103,7 @@ export default function OrderItem({ order, onOrderUpdate }: { order: any, onOrde
                 return;
             }
 
-            const result = await order.details.forEach(async (product: any) => {
+            const result = await Promise.all(order.details.map(async (product: any) => {
                 const res = await addCart({
                     userid: userId,
                     productid: product.Product.id,
@@ -111,8 +111,10 @@ export default function OrderItem({ order, onOrderUpdate }: { order: any, onOrde
                     notes: ''
                 });
                 return res;
-            });
-            if (result !== null && result.createdAt && result.updatedAt) {
+            }));
+            if (result !== null && Array.isArray(result) && result.every(
+                item => item.createdAt && item.updatedAt
+            )) {
                 toast.show({ type: 'success', message: t('product.addToCartSuccess') });
             }
         } catch (e) {
@@ -153,7 +155,7 @@ export default function OrderItem({ order, onOrderUpdate }: { order: any, onOrde
                     <ThemedText type='default' style={{ fontSize: 16, color: secondaryText }}>{updatedDate.toLocaleDateString('vi-VN')}</ThemedText>
                 </ThemedView>
                 <ThemedView style={styles.item}>
-                    <Image source={firstItem?.Product?.Imagesproducts?.[0]?.url || require('@/assets/images/unimage.png')} style={styles.image} />
+                    <Image source={firstItem?.Product?.ImagesProducts?.[0]?.url || require('@/assets/images/unimage.png')} style={styles.image} />
                     <ThemedView style={styles.contentContainer}>
                         <ThemedView style={styles.info}>
                             <ThemedView style={styles.content}>
@@ -195,7 +197,7 @@ export default function OrderItem({ order, onOrderUpdate }: { order: any, onOrde
                                 const productsData = order.details.map((d: any) => ({
                                     id: d.Product?.id,
                                     name: d.Product?.translations?.[0]?.name || 'Product',
-                                    image: d.Product?.Imagesproducts?.[0]?.url || '',
+                                    image: d.Product?.ImagesProducts?.[0]?.url || '',
                                     orderId: order.id,
                                     quantity: d.quantity || 1
                                 }));

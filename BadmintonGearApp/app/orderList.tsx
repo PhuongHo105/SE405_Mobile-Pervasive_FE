@@ -32,17 +32,16 @@ const OrderListScreen: FC = () => {
             const decode = jwtDecode<any>(token || '');
             const userId = decode.id ?? decode.userid;
             const orders = await getOrderByUserId(userId);
+            console.log('Fetched Orders:', orders);
             const ordersWithDetails = await Promise.all(orders.map(async (order: any) => {
                 const details = await getOrderDetails(order.id, language);
                 return { ...order, details };
             }));
 
-            // Ongoing: Not started (0), Processing (1), Shipped (2)
-            const ongoing = ordersWithDetails.filter((order: any) =>
+            const ongoing = ordersWithDetails.filter(order =>
                 !order.delivered && Number(order.status) !== -1
             );
-            // Completed: Delivered (3) or Cancelled (4)
-            const completed = ordersWithDetails.filter((order: any) =>
+            const completed = ordersWithDetails.filter(order =>
                 order.delivered || Number(order.status) === -1
             );
             setOngoingOrders(ongoing);
