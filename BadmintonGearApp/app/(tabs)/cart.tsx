@@ -11,8 +11,9 @@ import { deleteCart, getCartByUserID } from '@/services/cartService'
 import { getProductById } from '@/services/productService'
 import { getSuggestPromotions } from '@/services/promotionService'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { useFocusEffect } from '@react-navigation/native'
 import { Image } from 'expo-image'
-import { useRouter } from 'expo-router'
+import { useLocalSearchParams, useRouter } from 'expo-router'
 import { jwtDecode } from 'jwt-decode'
 import React, { FC, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -22,6 +23,7 @@ import { useToast } from '../providers/ToastProvider'
 
 const CartScreen: FC = () => {
     const { t } = useTranslation();
+    const { selectProductId } = useLocalSearchParams<{ selectProductId?: string }>();
     const language = getCurrentLanguage();
     const toast = useToast();
     const router = useRouter();
@@ -143,30 +145,42 @@ const CartScreen: FC = () => {
     };
 
     // Load cart from API based on stored user id (if available)
-    useEffect(() => {
-        const load = async () => {
-            try {
-                let userId: string | number | undefined;
-                const userData = await AsyncStorage.getItem('loginToken');
-                const decode = jwtDecode<any>(userData ?? '');
-                userId = decode?.id ?? decode?.userid;
+    useFocusEffect(
+        React.useCallback(() => {
+            const load = async () => {
+                try {
+                    let userId: string | number | undefined;
+                    const userData = await AsyncStorage.getItem('loginToken');
+                    const decode = jwtDecode<any>(userData ?? '');
+                    userId = decode?.id ?? decode?.userid;
 
-                if (!userId) {
-                    toast.show({ type: 'error', message: t('cart.pleaseLogin') });
-                    return;
+                    if (!userId) {
+                        toast.show({ type: 'error', message: t('cart.pleaseLogin') });
+                        return;
+                    }
+
+                    const serverCart = await getCartByUserID(userId);
+                    const normalized = await mapServerCartToUi(serverCart);
+
+                    if (selectProductId) {
+                        normalized.forEach(item => {
+                            if (String(item.product.productid) === String(selectProductId)) {
+                                item.checked = true;
+                            } else {
+                                item.checked = false;
+                            }
+                        });
+                    }
+
+                    setCartItems(normalized);
+                    recalcTotals(normalized as any);
+                } catch (error) {
+                    console.error('Error fetching cart items:', error);
                 }
-
-                const serverCart = await getCartByUserID(userId);
-
-                const normalized = await mapServerCartToUi(serverCart);
-                setCartItems(normalized);
-                recalcTotals(normalized as any);
-            } catch (error) {
-                console.error('Error fetching cart items:', error);
-            }
-        };
-        load();
-    }, [language, t, toast]);
+            };
+            load();
+        }, [language, t, toast, selectProductId])
+    );
 
     const recalcTotals = (items: any[], promoId: string | null = appliedPromotionId) => {
         const { subtotal, checkedCount } = summarizeCart(items);
