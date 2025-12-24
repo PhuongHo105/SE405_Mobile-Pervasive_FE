@@ -108,15 +108,17 @@ const CheckoutScreen: FC = () => {
             };
 
             const res = await checkoutCart(cartPayload);
-            console.log('Checkout response:', res);
             if (res?.orderId) {
                 if (paymentMethod === 'vnpay' || paymentMethod === 'paypal') {
+                    const returnUrl = 'http://192.168.1.12:3000';
                     const paymentData = {
                         orderid: res.orderId,
                         paymentmethod: paymentMethod,
+                        returnurl: returnUrl
                     } as any;
                     setOrderId(res.orderId);
                     const resPayment = await createPayment(paymentData);
+                    console.log('Payment URL:', resPayment);
                     if (resPayment) {
                         setPaymentUrl(String(resPayment));
                         setShowPaymentModal(true);

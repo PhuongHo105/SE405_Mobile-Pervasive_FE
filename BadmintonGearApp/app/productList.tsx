@@ -38,7 +38,6 @@ const ProductsScreen: React.FC<ProductsScreenProps> = ({ filters }) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [productList, setProductList] = useState<any[]>([]);
     const categoryOptions = getCategoryOptions();
-    console.log('Category Options:', categoryOptions);
     useEffect(() => {
         const fetchData = async () => {
             try {

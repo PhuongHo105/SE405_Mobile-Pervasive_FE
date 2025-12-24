@@ -66,7 +66,7 @@ const OrderDetailItem: FC<CartItemProps> = ({ product, checked = false, numberOf
 
     return (
         <ThemedView style={styles.item}>
-            <Image source={product.Product?.Imagesproducts?.[0]?.url || require('@/assets/images/unimage.png')} style={styles.image} />
+            <Image source={product.Product?.ImagesProducts?.[0]?.url || require('@/assets/images/unimage.png')} style={styles.image} />
             <ThemedView style={styles.contentContainer}>
                 <ThemedView style={styles.info}>
                     <ThemedView style={styles.content}>

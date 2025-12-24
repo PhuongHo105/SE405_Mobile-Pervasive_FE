@@ -27,7 +27,6 @@ export async function getOrderDetails(orderId: string, language: string): Promis
 export async function cancelOrder(orderId: string): Promise<boolean> {
     try {
         const response = await http.put(`/orders/${orderId}`, { status: -1 });
-        console.log('Cancel Order Response:', response);
         return true;
     } catch {
         return false;

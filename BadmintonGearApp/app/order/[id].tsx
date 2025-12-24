@@ -64,7 +64,6 @@ const OrderDetailScreen: FC = () => {
             setOrder(data);
         }
         const details = await getOrderDetails(orderId, language);
-        console.log('Fetched Order Details:', details);
         setDetails(details);
         setLoading(false);
     };
@@ -246,6 +245,18 @@ const OrderDetailScreen: FC = () => {
                                     return (
                                         <>
                                             <ThemedView style={styles.contentContainer}>
+                                                <ThemedText type='default' style={{ fontSize: 16, color: Colors[scheme].secondaryText }}>{t('order.orderId')}</ThemedText>
+                                                <ThemedText type='default' style={{ fontSize: 16, color: Colors[scheme].secondaryText }}>{order.id ?? ''}</ThemedText>
+                                            </ThemedView>
+                                            <ThemedView style={styles.contentContainer}>
+                                                <ThemedText type='default' style={{ fontSize: 16, color: Colors[scheme].secondaryText }}>{t('order.paymentMethod')}</ThemedText>
+                                                <ThemedText type='default' style={{ fontSize: 16, color: Colors[scheme].secondaryText }}>{order.Payment?.method ?? t('order.cash')}</ThemedText>
+                                            </ThemedView>
+                                            {/* <ThemedView style={styles.contentContainer}>
+                                                <ThemedText type='default' style={{ fontSize: 16, color: Colors[scheme].secondaryText }}>{t('order.paymentMethod')}</ThemedText>
+                                                <ThemedText type='default' style={{ fontSize: 16, color: Colors[scheme].secondaryText }}>{order.Payment?.method ?? ''}</ThemedText>
+                                            </ThemedView> */}
+                                            <ThemedView style={styles.contentContainer}>
                                                 <ThemedText type='default' style={{ fontSize: 16, color: Colors[scheme].secondaryText }}>{t('order.fullName')}</ThemedText>
                                                 <ThemedText type='default' style={{ fontSize: 16, color: Colors[scheme].secondaryText }}>{order.User?.name ?? ''}</ThemedText>
                                             </ThemedView>
@@ -301,7 +312,7 @@ const OrderDetailScreen: FC = () => {
                                         const productData = {
                                             id: d.product?.id,
                                             name: d.product?.Product?.translations?.[0]?.name || d.name || 'Product',
-                                            image: d.product?.Product?.Imagesproducts?.[0]?.url || d.image || '',
+                                            image: d.product?.Product?.ImagesProducts?.[0]?.url || d.image || '',
                                             orderId: order.id,
                                             quantity: d.quantity || d.numberOfItems || 1
                                         };

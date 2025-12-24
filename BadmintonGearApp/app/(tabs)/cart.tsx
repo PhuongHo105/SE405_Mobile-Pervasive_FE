@@ -134,7 +134,7 @@ const CartScreen: FC = () => {
                     flashsale,
                 },
                 numberOfItems: it?.quantity ?? 1,
-                checked: true,
+                checked: false,
             };
         }));
         return mapped;

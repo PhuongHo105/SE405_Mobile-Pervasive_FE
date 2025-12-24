@@ -4,13 +4,13 @@ import FullButton from "@/components/ui/FullButton";
 import Header from "@/components/ui/Header";
 import { IconSymbol } from "@/components/ui/icon-symbol";
 import Slider from "@/components/ui/Slider";
-import { BRAND_OPTIONS, CATEGORY_OPTIONS, PRICE_RANGE, PRICE_STEP, type ProductFilters, formatPrice } from "@/constants/product-data";
+import { BRAND_OPTIONS, formatPrice, getCategoryOptions, PRICE_RANGE, PRICE_STEP, type ProductFilters } from "@/constants/product-data";
 import { Colors } from "@/constants/theme";
 import { useColorScheme } from "@/hooks/use-color-scheme";
 import { useRouter } from "expo-router";
-import { useState,useMemo } from "react";
-import { Keyboard, KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, StyleSheet, TextInput } from "react-native";
+import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Keyboard, KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, StyleSheet, TextInput } from "react-native";
 
 const SearchScreen: React.FC = () => {
     const router = useRouter();
@@ -28,10 +28,10 @@ const SearchScreen: React.FC = () => {
     const handleCategoryPress = (value?: number) => {
         setDraftFilters((prev) => {
             const next: ProductFilters = { ...prev };
-            if (value === undefined || prev.category === value) {
-                delete next.category;
+            if (value === undefined || prev.categoriesid === value) {
+                delete next.categoriesid;
             } else {
-                next.category = value;
+                next.categoriesid = value;
             }
             return next;
         });
@@ -126,8 +126,8 @@ const SearchScreen: React.FC = () => {
             params.searchQuery = trimmedQuery;
         }
 
-        if (typeof draftFilters.category === 'number') {
-            params.category = String(draftFilters.category);
+        if (typeof draftFilters.categoriesid === 'number') {
+            params.categoriesid = String(draftFilters.categoriesid);
         }
 
         if (draftFilters.brand) {
@@ -148,7 +148,7 @@ const SearchScreen: React.FC = () => {
     };
 
     const localizedCategoryOptions = useMemo(
-        () => CATEGORY_OPTIONS.map((opt, idx) => (idx === 0 ? { ...opt, label: t("products.all") } : opt)),
+        () => getCategoryOptions().map((opt, idx) => (idx === 0 ? { ...opt, label: t("products.all") } : opt)),
         [t]
     );
 
@@ -207,7 +207,7 @@ const SearchScreen: React.FC = () => {
                         <ThemedText type="defaultSemiBold" style={styles.sectionLabel}>
                             {t("search.category")}
                         </ThemedText>
-                        <ThemedView style={styles.chipGroup}>{renderChip<number>(localizedCategoryOptions, draftFilters.category, handleCategoryPress)}</ThemedView>
+                        <ThemedView style={styles.chipGroup}>{renderChip<number>(localizedCategoryOptions, draftFilters.categoriesid, handleCategoryPress)}</ThemedView>
 
                         <ThemedText type="defaultSemiBold" style={styles.sectionLabel}>
                             {t("search.brand")}
