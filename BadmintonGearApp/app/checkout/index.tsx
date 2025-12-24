@@ -75,6 +75,7 @@ const CheckoutScreen: FC = () => {
     const loadUserData = async () => {
         const token = await AsyncStorage.getItem('loginToken');
         const decode = jwtDecode<any>(token || '');
+        console.log('Decoded JWT:', decode);
         const user = await getUserById(decode.userid);
         const address = user.address || {};
         setFullName(user.name || '');

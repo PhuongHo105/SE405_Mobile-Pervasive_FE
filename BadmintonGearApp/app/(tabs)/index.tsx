@@ -68,6 +68,7 @@ export default function HomeScreen() {
     const fetchData = async () => {
       try {
         const productsResponse = await getAllProducts(language);
+        console.log('All Products Response:', productsResponse);
         const bestSellingResponse = await getTopSellingProducts(new Date().getMonth() + 1, new Date().getFullYear(), language);
         const flashsalesResponse = await getNowFlashsales();
 

@@ -108,6 +108,7 @@ const CheckoutScreen: FC = () => {
             };
 
             const res = await checkoutCart(cartPayload);
+            console.log('Checkout response:', res);
             if (res?.orderId) {
                 if (paymentMethod === 'vnpay' || paymentMethod === 'paypal') {
                     const paymentData = {
@@ -141,8 +142,8 @@ const CheckoutScreen: FC = () => {
         const { url } = navState || {};
         if (!url) return;
 
-        const successUrl = 'localhost:3030/paymentsuccess';
-        const isReturningToApp = url.includes('localhost:3030');
+        const successUrl = 'localhost:3000//paymentsuccess';
+        const failedUrl = 'localhost:3000/paymentfailed';
 
         if (url.includes(successUrl)) {
             setShowPaymentModal(false);
@@ -152,10 +153,9 @@ const CheckoutScreen: FC = () => {
             } else {
                 router.replace('/checkout/result');
             }
-        } else if (isReturningToApp) {
+        } else if (url.includes(failedUrl)) {
             setShowPaymentModal(false);
-            toast.show({ message: t('checkoutPayment.paymentError', { defaultValue: 'Payment failed' }), type: 'error' });
-            router.replace('/orderList');
+            toast.show({ message: t('checkoutPayment.paymentError', { defaultValue: 'Thanh toán thất bại' }), type: 'error' });
         }
     };
 
@@ -269,8 +269,19 @@ const CheckoutScreen: FC = () => {
                         {paymentUrl ? (
                             <WebView
                                 source={{ uri: paymentUrl }}
+                                originWhitelist={['*']}
                                 onNavigationStateChange={handlePaymentNavigation}
                                 startInLoadingState
+                                onError={(syntheticEvent) => {
+                                    const { nativeEvent } = syntheticEvent;
+                                    console.warn('WebView error: ', nativeEvent);
+                                    toast.show({ type: 'error', message: t('checkoutReview.paymentError') });
+                                }}
+                                onHttpError={(syntheticEvent) => {
+                                    const { nativeEvent } = syntheticEvent;
+                                    console.warn('WebView HTTP error: ', nativeEvent);
+                                    toast.show({ type: 'error', message: t('checkoutReview.paymentError') });
+                                }}
                             />
                         ) : null}
                     </View>

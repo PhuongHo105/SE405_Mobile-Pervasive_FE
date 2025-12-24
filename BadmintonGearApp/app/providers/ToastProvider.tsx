@@ -162,6 +162,8 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
     );
 }
 
+export default ToastProvider;
+
 const styles = StyleSheet.create({
     container: {
         position: 'absolute',
