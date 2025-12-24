@@ -37,6 +37,8 @@ const ProductsScreen: React.FC<ProductsScreenProps> = ({ filters }) => {
     const [searchMode, setSearchMode] = useState(false);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [productList, setProductList] = useState<any[]>([]);
+    const categoryOptions = getCategoryOptions();
+    console.log('Category Options:', categoryOptions);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -85,7 +87,6 @@ const ProductsScreen: React.FC<ProductsScreenProps> = ({ filters }) => {
                 next.maxPrice = parsed;
             }
         }
-
         return next;
     }, [params.brand, params.categoriesid, params.maxPrice, params.minPrice, params.searchQuery]);
 
@@ -369,7 +370,7 @@ const ProductsScreen: React.FC<ProductsScreenProps> = ({ filters }) => {
                         <ThemedText type="defaultSemiBold" style={styles.sectionLabel}>
                             {t('products.category')}
                         </ThemedText>
-                        <ThemedView style={styles.chipGroup}>{renderChip<number>(getCategoryOptions(), draftFilters.categoriesid, handleCategoriesIdPress)}</ThemedView>
+                        <ThemedView style={styles.chipGroup}>{renderChip<number>(categoryOptions, draftFilters.categoriesid, handleCategoriesIdPress)}</ThemedView>
 
                         <ThemedText type="defaultSemiBold" style={styles.sectionLabel}>
                             {t('products.brand')}
