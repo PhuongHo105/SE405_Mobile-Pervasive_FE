@@ -181,6 +181,7 @@
     },
     "chat": {
         "title": "Chat",
+        "error": "Error",
         "typeMessage": "Type your message...",
         "startConversation": "Start a conversation to chat with sellers",
         "chatWithSeller": "Chat with Seller",
@@ -287,7 +288,7 @@
         "errorCancel": "Failed to cancel order. Please try again.",
         "paid": "Paid",
         "unpaid": "Unpaid",
-        "pay":"Pay Now"
+        "pay": "Pay Now"
     },
     "changePassword": {
         "title": "Change Password",
