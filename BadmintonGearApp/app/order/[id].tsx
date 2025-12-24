@@ -300,7 +300,7 @@ const OrderDetailScreen: FC = () => {
                                         const productData = {
                                             id: d.product?.id,
                                             name: d.product?.Product?.translations?.[0]?.name || d.name || 'Product',
-                                            image: d.product?.Product?.Imagesproducts?.[0]?.url || d.image || '',
+                                            image: d.product?.Product?.ImagesProducts?.[0]?.url || d.image || '',
                                             orderId: order.id,
                                             quantity: d.quantity || d.numberOfItems || 1
                                         };

@@ -118,7 +118,7 @@ const CartScreen: FC = () => {
                     console.warn('Failed to fetch product for cart item', cartId, productId, e);
                 }
             }
-            const imageUrl = productData?.Imagesproducts?.[0]?.url || productData?.image || '';
+            const imageUrl = productData?.ImagesProducts?.[0]?.url || productData?.image || '';
             const name = productData?.translations?.[0]?.name || productData?.name || '';
             const flashsale = productData?.flashsale;
             const price = productData?.price ?? 0;

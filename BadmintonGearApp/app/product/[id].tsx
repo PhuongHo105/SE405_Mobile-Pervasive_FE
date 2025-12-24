@@ -43,7 +43,7 @@ type ApiProduct = {
     discount?: number;
     brand?: string;
     description?: string;
-    Imagesproducts?: { url: string }[];
+    ImagesProducts?: { url: string }[];
     images?: any[];
     rating?: number;
     reviews?: number;
@@ -176,14 +176,14 @@ const ProductDetailScreen: React.FC = () => {
     }, [id, language]);
 
     const imagesArray = useMemo(() => {
-        const apiImages = product?.Imagesproducts?.map((img) => ({ uri: img.url })) ?? [];
+        const apiImages = product?.ImagesProducts?.map((img) => ({ uri: img.url })) ?? [];
         const legacyImages = (product?.images ?? []).map((img: any) => img);
         const combined = [...apiImages, ...legacyImages];
         if (combined.length === 0) {
             return [require('@/assets/images/product1.png')];
         }
         return combined;
-    }, [product?.Imagesproducts, product?.images]);
+    }, [product?.ImagesProducts, product?.images]);
 
     return (
         <ThemedView style={styles.container}>

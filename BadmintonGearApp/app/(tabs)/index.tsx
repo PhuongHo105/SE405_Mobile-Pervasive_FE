@@ -51,6 +51,9 @@ export default function HomeScreen() {
   const [flashsaleProducts, setFlashsaleProducts] = React.useState<any[]>([]);
   const [flashsaleEndTime, setFlashsaleEndTime] = React.useState<Date | null>(null);
   const [countdown, setCountdown] = React.useState<string>('');
+  useEffect(()=>{
+    console.log('Best Selling Products:', bestSellingProducts);
+  }, [bestSellingProducts]);
 
   const handleSeeAllProductsPress = () => {
     pushProductList();

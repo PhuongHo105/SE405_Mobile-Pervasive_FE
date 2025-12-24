@@ -21,8 +21,8 @@ export default function ProductCard({ product }: { product: any }) {
     const horizontalPadding = 15 * 2; // container padding left + right from screen layout
     const gap = 16; // desired gap between columns
     const cardWidth = Math.floor((windowWidth - horizontalPadding - gap) / 2);
-    const imageUrl = product?.Imagesproducts?.[0]?.url
-        ? product.Imagesproducts[0].url
+    const imageUrl = product?.ImagesProducts?.[0]?.url
+        ? product.ImagesProducts[0].url
         : "@/assets/images/unimage.png";
     const name = product.translations?.[0]?.name || product.name;
     const [reviews, setReviews] = React.useState<any[]>([]);
