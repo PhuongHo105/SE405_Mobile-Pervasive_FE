@@ -118,7 +118,6 @@ const CheckoutScreen: FC = () => {
                     } as any;
                     setOrderId(res.orderId);
                     const resPayment = await createPayment(paymentData);
-                    console.log('Payment URL:', resPayment);
                     if (resPayment) {
                         setPaymentUrl(String(resPayment));
                         setShowPaymentModal(true);

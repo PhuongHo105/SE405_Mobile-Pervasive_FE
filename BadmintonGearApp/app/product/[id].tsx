@@ -359,7 +359,7 @@ const ProductDetailScreen: React.FC = () => {
                             </ThemedView>)
                             )}
                         </ScrollView>
-                        <FullButton text={t('common.seeAll')} onPress={() => { router.push('/products' as any) }} />
+                        <FullButton text={t('common.seeAll')} onPress={() => { router.push('/productList' as any) }} />
                     </ThemedView>
 
                 </ThemedView>
