@@ -141,10 +141,11 @@ const CheckoutScreen: FC = () => {
 
     const handlePaymentNavigation = (navState: any) => {
         const { url } = navState || {};
+        console.log(url);
         if (!url) return;
 
-        const successUrl = 'localhost:3000//paymentsuccess';
-        const failedUrl = 'localhost:3000/paymentfailed';
+        const successUrl = 'localhost:3030/paymentsuccess';
+        const failedUrl = 'localhost:3030/paymentfailed';
 
         if (url.includes(successUrl)) {
             setShowPaymentModal(false);
