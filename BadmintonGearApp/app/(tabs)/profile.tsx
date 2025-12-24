@@ -7,10 +7,12 @@ import LanguageSelector from '@/components/ui/LanguageSelector';
 import ProfileMenuItem from '@/components/ui/ProfileMenuItem';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { getUserById } from '@/services/userService';
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
-import React from 'react';
+import { jwtDecode } from 'jwt-decode';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
     Alert,
@@ -38,13 +40,20 @@ const ProfileScreen: React.FC = () => {
         if (!themePref) return;
         themePref.setPreference(v ? 'dark' : 'light');
     };
-    const [userInfo, setUserInfo] = React.useState<{ name: string; email: string; avatar?: string }>(
-        {
-            name: 'Nguyễn Văn A',
-            email: 'nguyenvana@gmail.com',
-            avatar: undefined,
+    const [userInfo, setUserInfo] = React.useState<any>({});
+    useEffect(() => {
+        const getUserInfo = async () => {
+            const token = await AsyncStorage.getItem('loginToken');
+            const decodedToken = jwtDecode(token || "") as any;
+            const userid = decodedToken.userid;
+            const user = await getUserById(userid);
+            console.log(user);
+            if (user) {
+                setUserInfo(user);
+            }
         }
-    );
+        getUserInfo();
+    }, [])
 
     const handleLogout = async () => {
         Alert.alert(
