@@ -9,7 +9,7 @@ import { useColorScheme } from '@/hooks/use-color-scheme'
 import { getCurrentLanguage } from '@/i18n'
 import { deleteCart, getCartByUserID } from '@/services/cartService'
 import { getProductById } from '@/services/productService'
-import { getPromotions } from '@/services/promotionService'
+import { getSuggestPromotions } from '@/services/promotionService'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Image } from 'expo-image'
 import { useRouter } from 'expo-router'
@@ -50,7 +50,10 @@ const CartScreen: FC = () => {
     const [promotions, setPromotions] = useState<Promotion[]>([]);
 
     const loadPromotions = async () => {
-        const res = await getPromotions();
+        const token = await AsyncStorage.getItem('loginToken');
+        const decode = jwtDecode(token ?? '') as any;
+        const userid = decode?.userid;
+        const res = await getSuggestPromotions({ orderTotal: total, userid });
         return res.map((promo: any) => ({
             id: String(promo.id),
             code: promo.code,
@@ -65,12 +68,11 @@ const CartScreen: FC = () => {
 
     useEffect(() => {
         loadPromotions().then(setPromotions);
-    }, [language]);
+    }, [total]);
 
     function calculateDiscountAmount(subtotal: number, promo?: Promotion) {
         if (!promo || subtotal <= 0) return 0;
         if (promo.minSubtotal && subtotal < promo.minSubtotal) return 0;
-
         const rawDiscount = promo.type === 'percent'
             ? (subtotal * promo.value) / 100
             : promo.value;
