@@ -150,6 +150,44 @@ const ProductDetailScreen: React.FC = () => {
         }
     }, [adding, product?.id, quantity]);
 
+    const handleBuyNow = useCallback(async () => {
+        if (!product?.id) return;
+        try {
+            setAdding(true);
+            let userId: string | number | undefined;
+            const userData = await AsyncStorage.getItem('loginToken');
+            const decode = jwtDecode<any>(userData || '');
+            userId = decode?.id || decode?.userid;
+
+            if (!userId) {
+                toast.show({ type: 'error', message: t('cart.pleaseLogin') });
+                // Optional: navigate to login
+                return;
+            }
+
+            // reuse add cart logic or similar
+            const result = await addCart({
+                userid: userId,
+                productid: product.id,
+                quantity: quantity,
+                notes: ''
+            });
+
+            if (result) {
+                // Navigate to cart with selection param
+                router.push({
+                    pathname: '/(tabs)/cart',
+                    params: { selectProductId: String(product.id) }
+                });
+            }
+        } catch (e) {
+            console.error('Failed to buy now', e);
+            toast.show({ type: 'error', message: 'Failed to proceed' });
+        } finally {
+            setAdding(false);
+        }
+    }, [adding, product?.id, quantity]);
+
     // Load product from API
     useEffect(() => {
         const load = async () => {
@@ -375,8 +413,8 @@ const ProductDetailScreen: React.FC = () => {
                 ]}
             >
                 <BorderButton
-                    text='Buy Now'
-                    onPress={() => { }}
+                    text={t('product.buyNow')}
+                    onPress={handleBuyNow}
                     style={[styles.footerButton, styles.footerButtonLeft]}
                 />
                 <FullButton
