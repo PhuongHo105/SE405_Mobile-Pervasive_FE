@@ -455,6 +455,7 @@ const CheckoutScreen: FC = () => {
                                     items: params.items || '',
                                     promoId: params.promoId || '',
                                     promoCode: params.promoCode || '',
+                                    discountAmount: params.discountAmount || '0',
                                     address: JSON.stringify(address),
                                 },
                             } as any);

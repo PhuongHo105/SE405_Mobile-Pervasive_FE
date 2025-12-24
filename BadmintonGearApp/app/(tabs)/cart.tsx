@@ -61,7 +61,7 @@ const CartScreen: FC = () => {
             code: promo.code,
             title: promo.description,
             description: promo.description,
-            type: Number(promo.type) === 1 ? 'percent' : 'amount',
+            type: Number(promo.type) === 0 ? 'percent' : 'amount',
             value: promo.value,
             minSubtotal: promo.min_order_value,
             maxDiscount: promo.max_value,
@@ -179,7 +179,7 @@ const CartScreen: FC = () => {
                 }
             };
             load();
-        }, [language, t, toast, selectProductId])
+        }, [selectProductId])
     );
 
     const recalcTotals = (items: any[], promoId: string | null = appliedPromotionId) => {
@@ -271,6 +271,7 @@ const CartScreen: FC = () => {
                 items: JSON.stringify(selected),
                 promoId: promo?.id ?? '',
                 promoCode: promo?.code ?? '',
+                discountAmount: discountAmount.toString(),
             },
         } as any);
     }

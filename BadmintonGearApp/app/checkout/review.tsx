@@ -64,9 +64,10 @@ const CheckoutScreen: FC = () => {
 
             // Calculate discount from promo if exists
             let discountAmount = 0;
-            if (params.promoId && items[0]?.discount !== undefined) {
-                // Discount already calculated in cart, use first item's discount as reference
-                // Or recalculate based on promo data
+            if (params.discountAmount) {
+                discountAmount = Number(params.discountAmount);
+            } else if (params.promoId && items[0]?.discount !== undefined) {
+                // Fallback (though items don't have discount usually)
                 discountAmount = items.reduce((sum, item) => sum + (item.discount || 0), 0);
             }
             setDiscount(discountAmount);
@@ -74,7 +75,7 @@ const CheckoutScreen: FC = () => {
             const finalTotal = newSubtotal - discountAmount + shippingCost;
             setTotal(finalTotal);
         }
-    }, [items, params.promoId, shippingCost]);
+    }, [items, params.promoId, params.discountAmount, shippingCost]);
 
     const handlePlaceOrder = async () => {
         try {

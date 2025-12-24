@@ -221,6 +221,7 @@ const CheckoutScreen: FC = () => {
                                 items: params.items as string,
                                 promoId: params.promoId as string,
                                 promoCode: params.promoCode as string,
+                                discountAmount: params.discountAmount as string,
                                 address: params.address as string,
                                 paymentMethod: paymentMethod
                             }
