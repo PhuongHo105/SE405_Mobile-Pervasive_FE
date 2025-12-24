@@ -419,7 +419,7 @@ const ProductDetailScreen: React.FC = () => {
                 />
                 <FullButton
                     onPress={handleAddToCart}
-                    text="Add to Cart"
+                    text={t('product.addToCart')}
                     style={styles.footerButton}
                 />
             </ThemedView>
