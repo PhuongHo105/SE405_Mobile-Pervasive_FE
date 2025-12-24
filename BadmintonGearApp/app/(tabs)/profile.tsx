@@ -47,7 +47,6 @@ const ProfileScreen: React.FC = () => {
             const decodedToken = jwtDecode(token || "") as any;
             const userid = decodedToken.userid;
             const user = await getUserById(userid);
-            console.log(user);
             if (user) {
                 setUserInfo(user);
             }
