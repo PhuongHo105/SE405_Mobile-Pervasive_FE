@@ -77,10 +77,10 @@ export const PRICE_RANGE = (() => {
 
 export const CATEGORY_LABEL_MAP: Record<number, string> = {
   1: t('categories.rackets'),
+  5: t('categories.shuttlecocks'),
   2: t('categories.shoes'),
   3: t('categories.clothes'),
   4: t('categories.bags'),
-  5: t('categories.shuttlecocks'),
   6: t('categories.other'),
 };
 
@@ -88,10 +88,10 @@ export const getCategoryOptions = (): { label: string; value?: number }[] => {
   return [
     { label: t('products.all'), value: undefined },
     { label: t('categories.rackets'), value: 1 },
+    { label: t('categories.shuttlecocks'), value: 5 },
     { label: t('categories.shoes'), value: 2 },
     { label: t('categories.clothes'), value: 3 },
     { label: t('categories.bags'), value: 4 },
-    { label: t('categories.shuttlecocks'), value: 5 },
     { label: t('categories.other'), value: 6 },
   ];
 };

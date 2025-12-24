@@ -41,17 +41,17 @@ export default function HomeScreen() {
     router.push({ pathname: '/productList', params: routeParams });
   };
   const categories = [{ id: '1', name: t('categories.rackets'), image: <RacketIcon width={48} height={48} />, filter: 1 },
-  { id: '2', name: t('categories.shoes'), image: <ShoesIcon width={48} height={48} />, filter: 3 },
-  { id: '3', name: t('categories.clothes'), image: <ClothesIcon width={48} height={48} />, filter: 4 },
-  { id: '4', name: t('categories.bags'), image: <BagsIcon width={48} height={48} />, filter: 5 },
-  { id: '5', name: t('categories.shuttlecocks'), image: <ShuttlecockIcon width={48} height={48} />, filter: 2 },
-  { id: '6', name: t('categories.other'), image: <OtherIcon width={48} height={48} /> }];
+  { id: '5', name: t('categories.shuttlecocks'), image: <ShuttlecockIcon width={48} height={48} />, filter: 5 },
+  { id: '2', name: t('categories.shoes'), image: <ShoesIcon width={48} height={48} />, filter: 2 },
+  { id: '3', name: t('categories.clothes'), image: <ClothesIcon width={48} height={48} />, filter: 3 },
+  { id: '4', name: t('categories.bags'), image: <BagsIcon width={48} height={48} />, filter: 4 },
+  { id: '6', name: t('categories.other'), image: <OtherIcon width={48} height={48} />, filter: 6 }];
   const [products, setProducts] = React.useState<any[]>([]);
   const [bestSellingProducts, setBestSellingProducts] = React.useState<any[]>([]);
   const [flashsaleProducts, setFlashsaleProducts] = React.useState<any[]>([]);
   const [flashsaleEndTime, setFlashsaleEndTime] = React.useState<Date | null>(null);
   const [countdown, setCountdown] = React.useState<string>('');
-  useEffect(()=>{
+  useEffect(() => {
   }, [bestSellingProducts]);
 
   const handleSeeAllProductsPress = () => {
@@ -59,7 +59,7 @@ export default function HomeScreen() {
   };
 
   const handleCategoryItemPress = (category?: number) => {
-    pushProductList(category ? { category } : undefined);
+    router.push({ pathname: '/productList', params: { categoriesid: category } })
   };
 
   useEffect(() => {

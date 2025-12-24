@@ -68,7 +68,7 @@ const Header: FC<HeaderProps> = ({ mode }: HeaderProps): React.ReactElement => {
                         <IconSymbol size={28} name="search.fill" color={iconColor} />
                     </Pressable>
                     <Pressable onPress={() => { }} style={{ marginLeft: 12 }}>
-                        <Image source={require('../../assets/images/logo/light-logo.png')} style={styles.avatar} />
+                        <Image source={require('../../assets/images/avatar/light-avatar.png')} style={styles.avatar} />
                     </Pressable>
                 </ThemedView>
             )}
