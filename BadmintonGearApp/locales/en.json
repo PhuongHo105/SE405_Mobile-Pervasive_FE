@@ -284,7 +284,10 @@
         "orderId": "Order ID",
         "warnCancel": "Are you sure you want to cancel this order?",
         "successCancel": "Order cancelled successfully!",
-        "errorCancel": "Failed to cancel order. Please try again."
+        "errorCancel": "Failed to cancel order. Please try again.",
+        "paid": "Paid",
+        "unpaid": "Unpaid",
+        "pay":"Pay Now"
     },
     "changePassword": {
         "title": "Change Password",
@@ -502,7 +505,8 @@
     "checkoutPayment": {
         "title": "Checkout",
         "selectPaymentMethod": "Please select a payment method",
-        "cash": "Cash"
+        "cash": "Cash",
+        "paymentSuccess": "Payment successful!"
     },
     "checkoutReview": {
         "title": "Checkout",

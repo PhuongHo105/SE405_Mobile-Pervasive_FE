@@ -175,7 +175,7 @@ const ChatScreen: React.FC = () => {
                     const res = await chat(text);
                     setMessages(prev => [
                         ...prev.filter(m => !(m.mode === 'bot' && m.pending)),
-                        { from: 'bot', text: formatBotReply(res.reply || '...'), mode: 'bot' }
+                        { from: 'bot', text: formatBotReply(res.answer || '...'), mode: 'bot' }
                     ]);
                 } catch (err) {
                     setMessages(prev => [
