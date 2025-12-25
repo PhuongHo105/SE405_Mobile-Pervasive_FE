@@ -1,50 +1,67 @@
-# Welcome to your Expo app 👋
+# BadmintonGear App 🏸
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Mobile application for Badminton Gear shop built with React Native and Expo.
 
-## Get started
+## 📋 Prerequisites
 
-1. Install dependencies
+Before you begin, ensure you have met the following requirements:
+- **Node.js**: Download and install from [nodejs.org](https://nodejs.org/) (LTS recommended).
+- **Expo Go**: Install the Expo Go app on your iOS or Android device.
+  - [Android Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent)
+  - [iOS App Store](https://apps.apple.com/us/app/expo-go/id982107779)
 
-   ```bash
-   npm install
-   ```
+## 🚀 Installation
 
-2. Start the app
+1.  **Clone the repository** (if you haven't already):
+    ```bash
+    git clone https://github.com/PhuongHo105/SE405_Mobile-Pervasive_FE.git
+    cd BadmintonGearApp
+    ```
 
-   ```bash
-   npx expo start
-   ```
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-In the output, you'll find options to open the app in a
+3.  **Environment Configuration**:
+    Create a `.env` file in the root directory by copying the example:
+    ```bash
+    cp .env.
+    ```
+    Then, open `.env` and update the variables if necessary:
+    - `EXPO_PUBLIC_API_URL`: The URL of your backend API.
+    > **Note**: If testing on a physical device, use your computer's local IP address instead of `localhost`.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+    -`EXPO_PUBLIC_API_BASE_URL`: The base URL of your backend API.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🏃 Running the App
 
-## Get a fresh project
-
-When you're ready, run:
+Start the development server:
 
 ```bash
-npm run reset-project
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Once the server is running, you can:
 
-## Learn more
+- **Run on Android**: Press `a` in the terminal (requires Android Emulator) or scan the QR code with Expo Go on Android.
+- **Run on iOS**: Press `i` in the terminal (requires Xcode Simulator) or scan the QR code with any QR scanner on iOS (which will open Expo Go).
+- **Run on Web**: Press `w`.
 
-To learn more about developing your project with Expo, look at the following resources:
+## 📂 Project Structure
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- `app/`: Source code for the application (Expo Router file-based routing).
+- `assets/`: Images, fonts, and other static assets.
+- `components/`: Reusable UI components.
+- `constants/`: Configuration constants and themes.
+- `services/`: API services and business logic.
+- `hooks/`: Custom React hooks.
+- `locales/`: i18n localization files.
 
-## Join the community
+## 🛠 Tech Stack
 
-Join our community of developers creating universal apps.
+- **Framework**: [React Native](https://reactnative.dev/) with [Expo](https://expo.dev/)
+- **Routing**: [Expo Router](https://docs.expo.dev/router/introduction/)
+- **Styling**: Native styles
+- **State/Networking**: [Socket.io](https://socket.io/) (for real-time features)
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.

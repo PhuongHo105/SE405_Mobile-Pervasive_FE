@@ -6,9 +6,9 @@ let socket: Socket | null = null;
 
 export const initSocket = async () => {
     if (socket?.connected) return socket;
-
+    const apiUrl = process.env.EXPO_PUBLIC_API_BASE_URL;
     const token = await AsyncStorage.getItem("loginToken");
-    socket = io("http://192.168.1.12:3000", {
+    socket = io(apiUrl, {
         transports: ["websocket"],
         auth: { token },
         reconnection: true,
